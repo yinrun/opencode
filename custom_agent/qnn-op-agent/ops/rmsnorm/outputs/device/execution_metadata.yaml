@@ -1,0 +1,21 @@
+---
+timestamp: 240614112158
+command: /home/yinrun/software/qualcomm/qairt/2.42.0.251225/bin/x86_64-linux-clang/qnn-net-run --backend /home/yinrun/software/qualcomm/qairt/2.42.0.251225/lib/x86_64-linux-clang/libQnnHtp.so --model ops/rmsnorm/build/model_lib_x86/x86_64-linux-clang/libRMSNormModel.so --input_list /tmp/input_list.txt --output_dir ops/rmsnorm/outputs/device --op_packages ops/rmsnorm/build/build/x86/libQnnHtpRMSNorm.so:RMSNormInterfaceProvider
+execution_mode: synchronous
+inferences_completed: 1
+graphs:
+  - graph_name: rmsnorm_graph
+    input_tensors:
+    - tensor_name: input
+      id: 1
+      datatype: QNN_DATATYPE_FLOAT_16
+      dimensions: [1,1,128,896]
+    - tensor_name: weight
+      id: 2
+      datatype: QNN_DATATYPE_FLOAT_16
+      dimensions: [1,1,1,896]
+    output_tensors:
+    - tensor_name: output
+      id: 3
+      datatype: QNN_DATATYPE_FLOAT_16
+      dimensions: [1,1,128,896]

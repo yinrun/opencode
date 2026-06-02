@@ -1,0 +1,4 @@
+Failed to find necessary python package
+No module named 'qti'
+Please ensure that $QNN_ROOT/lib/python is in your PYTHONPATH
+

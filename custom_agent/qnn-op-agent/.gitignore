@@ -1,0 +1,27 @@
+# 编译产物
+*.so
+*.o
+*.obj
+
+# Context binary
+*.bin
+!.opencode/**
+
+# 测试输入/输出（二进制 raw tensor）
+*.raw
+
+# OpenCode 内部
+.opencode/sessions/
+.opencode/node_modules/
+.opencode/history/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 日志（太大）
+ops/*/logs/build-*.log
+
+# 系统文件
+.DS_Store

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpDefCollection
+    PackageName="HEReduceMaxPackage"
+    Domain="custom.op"
+    Version="1.0.0">
+  <OpDefList>
+    <OpDef>
+      <Name>HEReduceMax</Name>
+      <Description><Text>Reduce-max along last axis with keepdim. y[..,0] = max_k x[..,k]</Text></Description>
+      <Input>
+        <Name>input</Name>
+        <Description><Text>Input tensor [B,H,W,K] float16</Text></Description>
+      </Input>
+      <Output>
+        <Name>output</Name>
+        <Description><Text>Reduced tensor [B,H,W,1] float16</Text></Description>
+      </Output>
+    </OpDef>
+  </OpDefList>
+</OpDefCollection>

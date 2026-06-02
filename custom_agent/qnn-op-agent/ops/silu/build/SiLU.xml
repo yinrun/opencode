@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpDefCollection
+    PackageName="SiLUPackage"
+    Domain="custom.op"
+    Version="1.0.0">
+  <OpDefList>
+    <OpDef>
+      <Name>SiLU</Name>
+      <Description><Text>Element-wise SiLU activation: y = x * sigmoid(x)</Text></Description>
+      <Input>
+        <Name>input</Name>
+        <Description><Text>Input activation tensor (any shape, float16)</Text></Description>
+      </Input>
+      <Output>
+        <Name>output</Name>
+        <Description><Text>SiLU(input), same shape and dtype as input</Text></Description>
+      </Output>
+    </OpDef>
+  </OpDefList>
+</OpDefCollection>

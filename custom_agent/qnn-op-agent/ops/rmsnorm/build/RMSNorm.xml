@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpDefCollection
+    PackageName="RMSNormPackage"
+    Domain="custom.op"
+    Version="1.0.0">
+  <OpDefList>
+    <OpDef>
+      <Name>RMSNorm</Name>
+      <Description><Text>Root Mean Square Layer Normalization</Text></Description>
+      <Input>
+        <Name>input</Name>
+        <Description><Text>Input activation tensor [batch, seq, hidden]</Text></Description>
+      </Input>
+      <Input>
+        <Name>weight</Name>
+        <Description><Text>Scale weight tensor [hidden]</Text></Description>
+      </Input>
+      <Output>
+        <Name>output</Name>
+        <Description><Text>Normalized output tensor [batch, seq, hidden]</Text></Description>
+      </Output>
+      <Parameter>
+        <Name>eps</Name>
+        <Description><Text>Epsilon for numerical stability, default 1e-6</Text></Description>
+        <Mandatory>false</Mandatory>
+      </Parameter>
+    </OpDef>
+  </OpDefList>
+</OpDefCollection>

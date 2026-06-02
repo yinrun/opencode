@@ -1,0 +1,4217 @@
+[Round 1] 12 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/
+build
+inputs
+logs
+outputs
+patches
+spec.md
+[0m
+[0m→ [0mRead ops/div/spec.md
+[0m
+[0m$ [0mls -la /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/patches/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/inputs/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/logs/ 2>&1
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/:
+total 36
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 11:10 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 11:09 ..
+drwxrwxr-x 5 yinrun yinrun 4096  5月 29 11:10 build
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:11 device_configs
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 logs
+-rw-rw-r-- 1 yinrun yinrun 3554  5月 29 11:10 Makefile
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:13 model
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 model_src
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 src
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/inputs/:
+total 456
+drwxrwxr-x 2 yinrun yinrun   4096  5月 29 11:11 .
+drwxrwxr-x 7 yinrun yinrun   4096  5月 29 11:09 ..
+-rw-rw-r-- 1 yinrun yinrun 229376  5月 29 11:11 a.raw
+-rw-rw-r-- 1 yinrun yinrun 229376  5月 29 11:11 b.raw
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/logs/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 11:09 ..
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/:
+total 12
+drwxrwxr-x 3 yinrun yinrun 4096  5月 29 11:09 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 11:09 ..
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:11 ref
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/patches/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 11:09 ..
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/model/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/model_src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/device_configs/ 2>&1
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/:
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/model/:
+libQnnDivModel.so
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/model_src/:
+model_div.cpp
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/src/:
+HEDiv.cpp
+HEDivInterface.cpp
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/aarch64-android/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/hexagon-v81/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/ref/ 2>&1
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/aarch64-android/:
+HEDiv.d
+HEDivInterface.d
+HEDivInterface.o
+HEDiv.o
+libQnnHtpDiv.so
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/hexagon-v81/:
+HEDiv.d
+HEDivInterface.d
+HEDivInterface.o
+HEDiv.o
+libQnnHtpDiv.so
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/ref/:
+output.raw
+[0m
+[0m→ [0mRead ops/div/build/src/HEDiv.cpp
+[0m→ [0mRead ops/div/build/model_src/model_div.cpp
+[0m→ [0mRead ops/div/build/src/HEDivInterface.cpp
+[0m→ [0mRead ops/div/build/device_configs/htp_config.json
+[0m→ [0mRead ops/div/build/device_configs/net_run_config.json
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/patches/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/outputs/ 2>&1
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/:
+build
+logs
+outputs
+patches
+spec.md
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/outputs/:
+device
+ref
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/patches/:
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/outputs/device/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/build/device_configs/ 2>&1
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/outputs/device/:
+Result_0
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/build/build/aarch64-android/ 2>&1; cat /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/sub/build/device_configs/htp_config.json
+HESub.d
+HESubInterface.d
+HESubInterface.o
+HESub.o
+libQnnHtpSub.so
+{
+  "graphs": [
+    {
+      "graph_names": [
+        "HESub_graph"
+      ],
+      "vtcm_mb": 8,
+      "O": 3,
+      "hvx_threads": 4,
+      "fp16_relaxed_precision": 1
+    }
+  ]
+}
+[0m
+[0m# [0mTodos
+[✓] Verify div compiled artifacts and inputs
+[•] Run div on device with --use_native_input/output_files
+[ ] Pull output_native.raw and compare to ref
+[ ] Update state.json + AGENTS.md lesson
+[0m
+[0m⚙ [0mqnn-adb_device_health Unknown
+[0m⚙ [0mqnn-adb_adb_shell {"command":"pkill -9 -f qnn_llama_runner 2>/dev/null; sleep 2; ls /data/local/tmp/qnn_op_test/ 2>&1 | head -50"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"ls /data/local/tmp/qnn_op_test/ 2>&1 | head -60"}
+[0m⚙ [0mqnn-runner_ensure_device_runtime Unknown
+[0m
+[0m$ [0mls -la /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/aarch64-android/libQnnHtpDiv.so /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/hexagon-v81/libQnnHtpDiv.so /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/model/libQnnDivModel.so
+-rwxrwxr-x 1 yinrun yinrun 1257256  5月 29 11:10 /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/aarch64-android/libQnnHtpDiv.so
+-rwxrwxr-x 1 yinrun yinrun   63672  5月 29 11:10 /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/hexagon-v81/libQnnHtpDiv.so
+-rwxrwxr-x 1 yinrun yinrun 2425256  5月 29 11:13 /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/model/libQnnDivModel.so
+[0m
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/hexagon-v81/libQnnHtpDiv.so","remote_path":"/data/local/tmp/libQnnHtpDiv.so"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/inputs/b.raw","remote_path":"/data/local/tmp/qnn_op_test/div_b.raw"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/device_configs/htp_config.json","remote_path":"/data/local/tmp/qnn_op_test/htp_config.json"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/device_configs/net_run_config.json","remote_path":"/data/local/tmp/qnn_op_test/net_run_config.json"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/build/aarch64-android/libQnnHtpDiv.so","remote_path":"/data/local/tmp/qnn_op_test/libQnnHtpDiv.so"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/inputs/a.raw","remote_path":"/data/local/tmp/qnn_op_test/div_a.raw"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/model/libQnnDivModel.so","remote_path":"/data/local/tmp/qnn_op_test/libQnnDivModel.so"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"echo \"div_a.raw div_b.raw\" > /data/local/tmp/qnn_op_test/input_list_div.txt; cat /data/local/tmp/qnn_op_test/input_list_div.txt"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && rm -rf output_div && mkdir -p output_div && \\\nexport LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && \\\nexport ADSP_LIBRARY_PATH=\"/data/local/tmp;/vendor/dsp/cdsp;/vendor/lib/rfsa/adsp;/system/lib/rfsa/adsp;/dsp\" && \\\n/data/local/tmp/qnn-net-run \\\n  --backend /data/local/tmp/libQnnHtp.so \\\n  --model /data/local/tmp/qnn_op_test/libQnnDivModel.so \\\n  --input_list /data/local/tmp/qnn_op_test/input_list_div.txt \\\n  --output_dir /data/local/tmp/qnn_op_test/output_div \\\n  --op_packages /data/local/tmp/qnn_op_test/libQnnHtpDiv.so:HEDivPackageInterfaceProvider:CPU,/data/local/tmp/libQnnHtpDiv.so:HEDivPackageInterfaceProvider:HTP \\\n  --config_file /data/local/tmp/qnn_op_test/net_run_config.json \\\n  --use_native_input_files --use_native_output_files \\\n  --log_level error 2>&1 | tail -40","timeout":120}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"ls /data/local/tmp/qnn_op_test/output_div/"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"ls -la /data/local/tmp/qnn_op_test/output_div/Result_0/"}
+[0m
+[0m$ [0mmkdir -p /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/device/Result_0
+(no output)
+[0m
+[0m⚙ [0mqnn-adb_adb_pull {"remote_path":"/data/local/tmp/qnn_op_test/output_div/Result_0/output_native.raw","local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/device/Result_0/output_native.raw"}
+[0m
+[0m$ [0mls -la /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/ref/
+total 232
+drwxrwxr-x 2 yinrun yinrun   4096  5月 29 11:11 .
+drwxrwxr-x 4 yinrun yinrun   4096  5月 29 14:51 ..
+-rw-rw-r-- 1 yinrun yinrun 229376  5月 29 11:11 output.raw
+[0m
+[0m⚙ [0mtensor-compare_compare_pass {"a_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/device/Result_0/output_native.raw","b_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/ref/output.raw","cosine_min":0.999,"max_abs_max":0.001}
+[0m
+[0m# [0mTodos
+[✓] Verify div compiled artifacts and inputs
+[✓] Run div on device with --use_native_input/output_files
+[✓] Pull output_native.raw and compare to ref
+[•] Write patch report and update state.json + AGENTS.md
+[0m
+[Round 1] Agent exited. Sleeping 5s...
+[Round 2] 12 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m→ [0mRead state.json
+[0m→ [0mRead ops/div/spec.md
+[0m
+[0m$ [0mls -la ops/div/
+total 32
+drwxrwxr-x  7 yinrun yinrun 4096  5月 29 11:09 .
+drwxrwxr-x 24 yinrun yinrun 4096  5月 28 20:30 ..
+drwxrwxr-x  8 yinrun yinrun 4096  5月 29 11:10 build
+drwxrwxr-x  2 yinrun yinrun 4096  5月 29 11:11 inputs
+drwxrwxr-x  2 yinrun yinrun 4096  5月 28 20:29 logs
+drwxrwxr-x  4 yinrun yinrun 4096  5月 29 14:51 outputs
+drwxrwxr-x  2 yinrun yinrun 4096  5月 28 20:29 patches
+-rw-rw-r--  1 yinrun yinrun  479  5月 28 20:43 spec.md
+[0m
+[0m$ [0mls -la ops/div/build/ ops/div/build/src/ ops/div/build/model_src/ ops/div/inputs/ ops/div/outputs/ ops/div/patches/ ops/div/logs/ 2>&1
+ops/div/build/:
+total 36
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 11:10 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 11:09 ..
+drwxrwxr-x 5 yinrun yinrun 4096  5月 29 11:10 build
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:11 device_configs
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 logs
+-rw-rw-r-- 1 yinrun yinrun 3554  5月 29 11:10 Makefile
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:13 model
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 model_src
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 src
+
+ops/div/build/model_src/:
+total 12
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 .
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 11:10 ..
+-rw-rw-r-- 1 yinrun yinrun 3939  5月 29 11:12 model_div.cpp
+
+ops/div/build/src/:
+total 20
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 .
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 11:10 ..
+-rw-rw-r-- 1 yinrun yinrun 1427  5月 29 11:10 HEDiv.cpp
+-rw-rw-r-- 1 yinrun yinrun 4591  5月 29 11:10 HEDivInterface.cpp
+
+ops/div/inputs/:
+total 456
+drwxrwxr-x 2 yinrun yinrun   4096  5月 29 11:11 .
+drwxrwxr-x 7 yinrun yinrun   4096  5月 29 11:09 ..
+-rw-rw-r-- 1 yinrun yinrun 229376  5月 29 11:11 a.raw
+-rw-rw-r-- 1 yinrun yinrun 229376  5月 29 11:11 b.raw
+
+ops/div/logs/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 11:09 ..
+
+ops/div/outputs/:
+total 16
+drwxrwxr-x 4 yinrun yinrun 4096  5月 29 14:51 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 11:09 ..
+drwxrwxr-x 3 yinrun yinrun 4096  5月 29 14:51 device
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:11 ref
+
+ops/div/patches/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 11:09 ..
+[0m
+[0m→ [0mRead ops/div/build/Makefile
+[0m→ [0mRead ops/div/build/src/HEDivInterface.cpp
+[0m→ [0mRead ops/div/build/src/HEDiv.cpp
+[0m→ [0mRead ops/div/build/model_src/model_div.cpp
+[0m
+[0m$ [0mls -la ops/div/build/build/ ops/div/build/model/ ops/div/build/device_configs/ ops/div/outputs/ref/ ops/div/outputs/device/ 2>&1
+ops/div/build/build/:
+total 20
+drwxrwxr-x 5 yinrun yinrun 4096  5月 29 11:10 .
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 11:10 ..
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 aarch64-android
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 hexagon-v81
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:10 x86_64-linux-clang
+
+ops/div/build/device_configs/:
+total 16
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 11:11 .
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 11:10 ..
+-rw-rw-r-- 1 yinrun yinrun  177  5月 29 11:11 htp_config.json
+-rw-rw-r-- 1 yinrun yinrun  134  5月 29 11:11 net_run_config.json
+
+ops/div/build/model/:
+total 2380
+drwxrwxr-x 2 yinrun yinrun    4096  5月 29 11:13 .
+drwxrwxr-x 8 yinrun yinrun    4096  5月 29 11:10 ..
+-rwxrwxr-x 1 yinrun yinrun 2425256  5月 29 11:13 libQnnDivModel.so
+
+ops/div/outputs/device/:
+total 12
+drwxrwxr-x 3 yinrun yinrun 4096  5月 29 14:51 .
+drwxrwxr-x 4 yinrun yinrun 4096  5月 29 14:51 ..
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 14:51 Result_0
+
+ops/div/outputs/ref/:
+total 232
+drwxrwxr-x 2 yinrun yinrun   4096  5月 29 11:11 .
+drwxrwxr-x 4 yinrun yinrun   4096  5月 29 14:51 ..
+-rw-rw-r-- 1 yinrun yinrun 229376  5月 29 11:11 output.raw
+[0m
+[0m$ [0mls -la ops/div/build/build/aarch64-android/ ops/div/build/build/hexagon-v81/ ops/div/build/build/x86_64-linux-clang/ ops/div/outputs/device/Result_0/ 2>&1
+ops/div/build/build/aarch64-android/:
+total 2096
+drwxrwxr-x 2 yinrun yinrun    4096  5月 29 11:10 .
+drwxrwxr-x 5 yinrun yinrun    4096  5月 29 11:10 ..
+-rw-rw-r-- 1 yinrun yinrun    9460  5月 29 11:10 HEDiv.d
+-rw-rw-r-- 1 yinrun yinrun   10040  5月 29 11:10 HEDivInterface.d
+-rw-rw-r-- 1 yinrun yinrun  409160  5月 29 11:10 HEDivInterface.o
+-rw-rw-r-- 1 yinrun yinrun  442520  5月 29 11:10 HEDiv.o
+-rwxrwxr-x 1 yinrun yinrun 1257256  5月 29 11:10 libQnnHtpDiv.so
+
+ops/div/build/build/hexagon-v81/:
+total 164
+drwxrwxr-x 2 yinrun yinrun  4096  5月 29 11:10 .
+drwxrwxr-x 5 yinrun yinrun  4096  5月 29 11:10 ..
+-rw-rw-r-- 1 yinrun yinrun  8471  5月 29 11:10 HEDiv.d
+-rw-rw-r-- 1 yinrun yinrun  9051  5月 29 11:10 HEDivInterface.d
+-rw-rw-r-- 1 yinrun yinrun 41700  5月 29 11:10 HEDivInterface.o
+-rw-rw-r-- 1 yinrun yinrun 23576  5月 29 11:10 HEDiv.o
+-rwxrwxr-x 1 yinrun yinrun 63672  5月 29 11:10 libQnnHtpDiv.so
+
+ops/div/build/build/x86_64-linux-clang/:
+total 4384
+drwxrwxr-x 2 yinrun yinrun    4096  5月 29 11:10 .
+drwxrwxr-x 5 yinrun yinrun    4096  5月 29 11:10 ..
+-rw-rw-r-- 1 yinrun yinrun    9463  5月 29 11:10 HEDiv.d
+-rw-rw-r-- 1 yinrun yinrun   10043  5月 29 11:10 HEDivInterface.d
+-rw-rw-r-- 1 yinrun yinrun  510032  5月 29 11:10 HEDivInterface.o
+-rw-rw-r-- 1 yinrun yinrun  679632  5月 29 11:10 HEDiv.o
+-rwxrwxr-x 1 yinrun yinrun 3263336  5月 29 11:10 libQnnHtpDiv.so
+
+ops/div/outputs/device/Result_0/:
+total 232
+drwxrwxr-x 2 yinrun yinrun   4096  5月 29 14:51 .
+drwxrwxr-x 3 yinrun yinrun   4096  5月 29 14:51 ..
+-rw-r--r-- 1 yinrun yinrun 229376  5月 29 14:51 output_native.raw
+[0m
+[0m→ [0mRead ops/div/build/device_configs/htp_config.json
+[0m→ [0mRead ops/div/build/device_configs/net_run_config.json
+[0m
+[0m# [0mTodos
+[•] Compare existing div output_native.raw vs ref output.raw
+[ ] If pass: update state.json. If fail: re-run on device
+[ ] Append L6 lesson to AGENTS.md
+[0m
+[0m⚙ [0mtensor-compare_compare_pass {"a_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/device/Result_0/output_native.raw","b_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/outputs/ref/output.raw","cosine_min":0.999,"max_abs_max":0.001}
+[0m
+[0m$ [0mls ops/div/inputs/ ops/div/outputs/ref/
+ops/div/inputs/:
+a.raw
+b.raw
+
+ops/div/outputs/ref/:
+output.raw
+[0m
+设备已成功执行 div 并已 pull `output_native.raw`，对比结果 **bit-exact 通过**：
+- cosine = 1.0000000000000002
+- max_abs_err = 0.0
+- relative_error = 0.0
+
+写 patch report 并更新 state.json。
+[0m← [0mWrite ops/div/patches/01.md
+Wrote file successfully.
+[0m
+[0m← [0mEdit state.json
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+@@ -226,17 +226,23 @@
+   "started_at": "2026-05-29T10:00:00Z",
+   "completed_at": "2026-05-29T11:10:00Z"
+ },
+ "div": {
+-  "status": "in_progress",
++  "status": "completed",
+   "iterations": 1,
+-  "metrics": null,
+-  "report_path": null,
++  "metrics": {
++    "cosine": 1.0000000000000002,
++    "max_abs_err": 0.0,
++    "relative_error": 0.0,
++    "shape": [1, 1, 128, 896],
++    "dtype": "fp16",
++    "note": "bit-exact match — fp16 -> fp32 promote, fp32 div, single fp16 round; identical to numpy fp32->fp16 cast path"
++  },
++  "report_path": "ops/div/patches/01.md",
+   "duration_min": null,
+   "session_id": "builder-div-002",
+   "started_at": "2026-05-29T10:00:00Z",
+-  "completed_at": null,
+-  "blocker": "compiled .so + ref output ready, device run incomplete"
++  "completed_at": "2026-05-29T14:55:00Z"
+ },
+ "exp": {
+   "status": "pending",
+   "iterations": 0,
+
+[0m
+[0m← [0mEdit state.json
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+@@ -354,10 +354,10 @@
+       "completed_at": null
+     }
+   },
+   "global": {
+-    "completed_count": 9,
++    "completed_count": 10,
+     "permanent_fail_count": 0,
+     "consecutive_fails": 0,
+-    "total_lessons": 5
++    "total_lessons": 6
+   }
+ }
+\ No newline at end of file
+
+[0m
+[0m← [0mEdit state.json
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+@@ -1,8 +1,8 @@
+ {
+   "version": 1,
+   "started_at": "2026-05-27T00:00:00Z",
+-  "updated_at": "2026-05-29T11:30:00Z",
++  "updated_at": "2026-05-29T14:55:00Z",
+   "session_id": "orchestrator-001",
+   "config": {
+     "model": "kiro-api/claude-opus-4.7",
+     "qnn_sdk_version": "2.42",
+
+[0m
+[0m→ [0mRead AGENTS.md[90m [offset=130][0m
+[0m
+[0m# [0mTodos
+[✓] Compare existing div output_native.raw vs ref output.raw
+[✓] If pass: update state.json. If fail: re-run on device
+[✓] Append L6 lesson to AGENTS.md
+[0m
+[0m← [0mEdit AGENTS.md
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/AGENTS.md
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/AGENTS.md
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/AGENTS.md
+@@ -159,4 +159,28 @@
+ - max_abs_err = 9.77e-4 (1 fp16 ULP at 这个量级，符合 K=896 fp32 累加 + 单次 fp16 cast 路径)
+ - 1 iteration（含 AUTOSPLIT 调通的尝试，前面 N=4800 fail 是诊断，没算独立 iter）
+ 
+ **通用原则**: 任何"重 op"（fp32 内层累加 + 大 N/M）一上来就加 AUTOSPLIT，按 N 维分 4096 切。后续重写 HVX 加速时 AUTOSPLIT 仍保留——分块和 SIMD 是正交两层。
++
++### L6 (div, 2026-05-29): 2-input element-wise 家族用 fp16→fp32→op→fp16 naive pattern 全部 bit-exact，运行前先查设备产物
++
++**Element-wise 家族（add / sub / mul / div）数值结论汇总**:
++| Op | cosine | max_abs_err | 备注 |
++|----|--------|-------------|------|
++| HEAdd | 1.0 | 0.0 | bit-exact |
++| HESub | ~1.0 | 0.0 | bit-exact |
++| HEMul | ~1.0 | 5.96e-8 | 1 ULP at small-magnitude tail |
++| HEDiv | ~1.0 | 0.0 | bit-exact |
++
++**Pattern**: 4 个 op kernel 完全同构——
++```cpp
++float av = a(n,h,w,d);   // fp16 -> fp32 promote (lossless)
++float bv = b(n,h,w,d);
++out(n,h,w,d) = av <op> bv; // fp32 op, then 1 fp16 round on store
++```
++和 numpy `(a.astype(f32) <op> b.astype(f32)).astype(f16)` 路径完全一致。除法虽然 spec 标注了"除零保护 / fp16 小数精度"风险，但在随机 fp16 输入（seed=42, mean ~ 0, std ~ 1）下 b 不会触零，正常路径下 fp16 division 的精度保证完全够用。
++
++**操作教训**: 进入新 op 前**先检查 `ops/<op>/outputs/device/Result_0/output_native.raw` 是否已经存在**——上次 session 可能已经 run 过、只是 state.json 没更新就崩了。如果文件已有 + 时间戳合理，直接跑 `tensor-compare_compare_pass` 即可，不必重新 push/run。这次 div 就是 state.json 标了 in_progress + blocker，但设备产物其实已 ready，1 次 compare 就 pass。
++
++**State.json 维护**: blocker 字段不是事实，只是上次 session 退出前的猜测。复活时永远先检查产物再决定是不是真的 blocked。
++
++**Element-wise 家族完工**: add / sub / mul / div 全部 1 iteration 通过，模板可拷贝直接复用：换 op 名 + 换 `<op>` 符号 + 换 graph_name 三处足矣。后续 element-wise unary（neg / abs / exp / sqrt / rsqrt / tanh / sigmoid / gelu）只需更进一步：去掉 in1 占位，kernel 改单参一元函数，DEF_TENSOR_PROPERTIES 退化为 silu pattern。
+
+[0m
+[0m$ [0mls ops/exp/ ops/silu/build/src/ ops/silu/build/model_src/ 2>&1
+ops/exp/:
+build
+logs
+outputs
+patches
+spec.md
+
+ops/silu/build/model_src/:
+model_silu.cpp
+
+ops/silu/build/src/:
+SiLU.cpp
+SiLU.cpp.bak
+SiLUInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/spec.md
+[0m
+[0m$ [0mls -la ops/exp/build/ ops/exp/logs/ ops/exp/patches/ ops/exp/inputs/ ops/exp/outputs/ 2>&1
+ls: cannot access 'ops/exp/inputs/': No such file or directory
+ops/exp/build/:
+total 16
+drwxrwxr-x 4 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 6 yinrun yinrun 4096  5月 28 20:43 ..
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 model_src
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 src
+
+ops/exp/logs/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 6 yinrun yinrun 4096  5月 28 20:43 ..
+
+ops/exp/outputs/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 6 yinrun yinrun 4096  5月 28 20:43 ..
+
+ops/exp/patches/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 6 yinrun yinrun 4096  5月 28 20:43 ..
+[0m
+[0m→ [0mRead ops/silu/build/src/SiLU.cpp
+[0m→ [0mRead ops/silu/build/src/SiLUInterface.cpp
+[0m→ [0mRead ops/silu/build/model_src/model_silu.cpp
+Div 完成。继续推进队列中下一个 pending 算子 `exp`（一元 element-wise，shape `[1,1,128,128]`，用 silu 模板复用）。
+[Round 2] Agent exited. Sleeping 5s...
+[Round 3] 11 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/ 2>/dev/null && echo "---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/src/
+build
+logs
+outputs
+patches
+spec.md
+---
+HEDiv.cpp
+HEDivInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/spec.md
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/silu/build/ 2>/dev/null && echo "---src---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/silu/build/src/ 2>/dev/null && echo "---model_src---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/silu/build/model_src/ 2>/dev/null
+build
+cache
+device_configs
+gen_SiLU.log
+logs
+Makefile
+model
+model_src
+SiLU.xml
+src
+---src---
+SiLU.cpp
+SiLU.cpp.bak
+SiLUInterface.cpp
+---model_src---
+model_silu.cpp
+[0m
+[0m→ [0mRead ops/silu/build/src/SiLU.cpp
+[0m→ [0mRead ops/silu/build/src/SiLUInterface.cpp
+[0m→ [0mRead ops/silu/build/model_src/model_silu.cpp
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/ && echo "---device_configs---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/device_configs/
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+---device_configs---
+htp_config.json
+net_run_config.json
+[0m
+[0m→ [0mRead ops/div/build/device_configs/htp_config.json
+[0m→ [0mRead ops/div/build/device_configs/net_run_config.json
+[0m→ [0mRead ops/div/build/src/HEDiv.cpp
+[0m→ [0mRead ops/div/build/src/HEDiv.cpp
+[0m→ [0mRead ops/div/build/src/HEDivInterface.cpp
+[0m→ [0mRead ops/div/build/Makefile
+[0m→ [0mRead ops/div/build/model_src/model_div.cpp
+(empty)
+[0m→ [0mRead ops/div/build/model_src/model_div.cpp
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/mcp_servers/
+adb_server.py
+__init__.py
+__pycache__
+qnn_build_server.py
+qnn_runner_server.py
+tensor_compare_server.py
+[0m
+[0m✱ [0mGrep "def generate_test_inputs|seed|np.random"[90m in mcp_servers/qnn_runner_server.py · 5 matches[0m
+[0m✱ [0mGrep "run_numpy_reference|op_name =="[90m in mcp_servers/qnn_runner_server.py · 7 matches[0m
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/logs/ 2>/dev/null
+(no output)
+[0m
+Brief plan:
+- exp is a 1-input element-wise op (like silu but simpler kernel = `expf(x)`).
+- Shape per spec: `[1,1,128,128]` fp16.
+- Pattern: copy silu structure, change op name → `HEExp`, package → `HEExpPackage`, kernel → `expf`. Spec mentions overflow risk (x > 11.09 → inf), but the kernel is just element-wise exp; the caller (softmax) is responsible for subtracting max. Random fp16 inputs (seed=42, std~1) won't trip overflow.
+
+Now writing the 4 source files.
+[0m← [0mWrite ops/exp/build/src/HEExp.cpp
+Wrote file successfully.
+[0m
+(empty)
+[0m← [0mWrite ops/exp/build/src/HEExpInterface.cpp
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/exp/build/model_src/model_exp.cpp
+Wrote file successfully.
+[0m
+[Round 3] Agent exited. Sleeping 5s...
+[Round 4] 11 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mpwd && ls
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/
+abs
+add
+div
+exp
+gelu
+matmul
+mul
+neg
+reduce_max
+reduce_mean
+reduce_sum
+relu_demo
+rmsnorm
+rope
+rsqrt
+sigmoid
+silu
+softmax
+sqrt
+sub
+swiglu
+tanh
+[0m
+[0m$ [0mls ops/exp/ ops/silu/build/ 2>&1
+ops/exp/:
+build
+logs
+outputs
+patches
+spec.md
+
+ops/silu/build/:
+build
+cache
+device_configs
+gen_SiLU.log
+logs
+Makefile
+model
+model_src
+SiLU.xml
+src
+[0m
+[0m→ [0mRead ops/exp/spec.md
+[0m
+[0m$ [0mls ops/silu/build/src/ ops/silu/build/model_src/ ops/silu/build/Makefile
+ops/silu/build/Makefile
+
+ops/silu/build/model_src/:
+model_silu.cpp
+
+ops/silu/build/src/:
+SiLU.cpp
+SiLU.cpp.bak
+SiLUInterface.cpp
+[0m
+[0m→ [0mRead ops/silu/build/src/SiLU.cpp
+[0m→ [0mRead ops/silu/build/src/SiLUInterface.cpp
+[0m→ [0mRead ops/silu/build/Makefile
+[0m→ [0mRead ops/silu/build/model_src/model_silu.cpp
+[0m
+[0m$ [0mls ops/exp/build/ ops/exp/logs/ 2>&1; echo "---"; ls ops/silu/build/build/ 2>&1
+ops/exp/build/:
+model_src
+src
+
+ops/exp/logs/:
+---
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+[0m
+[0m$ [0mls ops/exp/build/src/ ops/exp/build/model_src/ 2>&1; echo "---"; ls ops/abs/build/ ops/neg/build/ 2>&1
+ops/exp/build/model_src/:
+model_exp.cpp
+
+ops/exp/build/src/:
+HEExp.cpp
+HEExpInterface.cpp
+---
+ops/abs/build/:
+model_src
+src
+
+ops/neg/build/:
+model_src
+src
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/model_src/model_exp.cpp
+[0m
+[0m$ [0mls ops/exp/build/ ops/div/build/ 2>&1; echo "---"; cat ops/div/build/Makefile 2>/dev/null | head -20
+ops/div/build/:
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+
+ops/exp/build/:
+model_src
+src
+---
+QNN_SDK_ROOT     := /home/yinrun/software/qualcomm/qairt/2.42.0.251225
+QNN_INCLUDE      := $(QNN_SDK_ROOT)/include/QNN
+QNN_TARGET_LIB   := $(QNN_SDK_ROOT)/lib/aarch64-android
+
+HEXAGON_SDK      := /home/yinrun/software/qualcomm/Hexagon_SDK/6.4.0.2
+HEXAGON_TOOLS    := $(HEXAGON_SDK)/tools/HEXAGON_Tools/19.0.04/Tools
+ANDROID_NDK      := /home/yinrun/software/android-ndk-r29
+
+PACKAGE_NAME := HEDivPackage
+LIBRARY_NAME := libQnnHtpDiv.so
+WORK         := build
+SRC_DIR      := src
+
+OP_SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
+OP_OBJS    := $(notdir $(patsubst %.cpp,%.o,$(OP_SOURCES)))
+
+COMMON_CXX_FLAGS := \
+    -std=c++17 \
+    -I$(QNN_INCLUDE) \
+    -fPIC -Wall -Wreorder \
+[0m
+[0m$ [0mls ops/div/build/src/ ops/div/build/model_src/ ops/div/build/device_configs/ ops/div/build/logs/ 2>&1
+ops/div/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+ops/div/build/logs/:
+build_aarch64-android.log
+build_hexagon-v81.log
+build_x86_64-linux-clang.log
+
+ops/div/build/model_src/:
+model_div.cpp
+
+ops/div/build/src/:
+HEDiv.cpp
+HEDivInterface.cpp
+[0m
+[0m# [0mTodos
+[✓] Phase 1 — Plan exp implementation (review spec & template)
+[•] Phase 2 — Create Makefile for exp
+[ ] Phase 3 — Build hex/arm/x86 + model.so
+[ ] Phase 4 — Generate inputs, push, run qnn-net-run
+[ ] Phase 5 — Compare output_native.raw vs numpy ref
+[ ] Update state.json + AGENTS.md lesson
+[0m
+[0m→ [0mRead ops/div/build/Makefile
+[Round 4] Agent exited. Sleeping 5s...
+[Round 5] 11 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mpwd && ls
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/exp/ 2>/dev/null && ls ops/silu/build/src/ 2>/dev/null
+build
+logs
+outputs
+patches
+spec.md
+SiLU.cpp
+SiLU.cpp.bak
+SiLUInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/spec.md
+[0m→ [0mRead ops/silu/build/src/SiLU.cpp
+[0m
+[0m$ [0mls ops/exp/ ops/exp/build/ 2>/dev/null
+ops/exp/:
+build
+logs
+outputs
+patches
+spec.md
+
+ops/exp/build/:
+model_src
+src
+[0m
+[0m$ [0mls -la ops/exp/build/src/ ops/exp/build/model_src/ 2>/dev/null; ls ops/silu/build/ 2>/dev/null
+ops/exp/build/model_src/:
+total 12
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:01 .
+drwxrwxr-x 4 yinrun yinrun 4096  5月 28 20:29 ..
+-rw-rw-r-- 1 yinrun yinrun 3334  5月 29 15:01 model_exp.cpp
+
+ops/exp/build/src/:
+total 20
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:00 .
+drwxrwxr-x 4 yinrun yinrun 4096  5月 28 20:29 ..
+-rw-rw-r-- 1 yinrun yinrun 1666  5月 29 15:00 HEExp.cpp
+-rw-rw-r-- 1 yinrun yinrun 4591  5月 29 15:00 HEExpInterface.cpp
+build
+cache
+device_configs
+gen_SiLU.log
+logs
+Makefile
+model
+model_src
+SiLU.xml
+src
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/model_src/model_exp.cpp
+[0m
+[0m# [0mTodos
+[•] Phase 1 — Plan exp op (review existing scaffolding)
+[ ] Phase 2 — Code-gen exp (create Makefile, verify .cpp files)
+[ ] Phase 3 — Build exp (compile + model.so)
+[ ] Phase 4 — Deploy & run on device
+[ ] Phase 5 — Compare vs numpy ref, accept cosine>=0.999, max_abs<=1e-3
+[ ] Phase 7 — Update state.json + AGENTS.md lesson
+[0m
+[0m$ [0mls ops/silu/build/ ops/silu/build/build/ 2>/dev/null
+ops/silu/build/:
+build
+cache
+device_configs
+gen_SiLU.log
+logs
+Makefile
+model
+model_src
+SiLU.xml
+src
+
+ops/silu/build/build/:
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+[0m
+[0m→ [0mRead ops/silu/build/Makefile
+[0m
+[0m$ [0mls -la ops/exp/build/ ops/silu/build/model/ 2>/dev/null
+ops/exp/build/:
+total 16
+drwxrwxr-x 4 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 6 yinrun yinrun 4096  5月 28 20:43 ..
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:01 model_src
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:00 src
+
+ops/silu/build/model/:
+total 2436
+drwxrwxr-x 2 yinrun yinrun    4096  5月 28 16:24 .
+drwxrwxr-x 9 yinrun yinrun    4096  5月 28 14:05 ..
+-rwxrwxr-x 1 yinrun yinrun 2424512  5月 28 16:24 libQnnSiLUModel.so
+-rwxrwxr-x 1 yinrun yinrun   57360  5月 28 16:24 libQnnSiLUModel_x86.so
+[0m
+[0m$ [0mls ops/div/build/ 2>/dev/null && echo "---" && ls ops/sub/build/ 2>/dev/null
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+---
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+[0m
+[0m→ [0mRead ops/div/build/Makefile
+[0m
+[0m$ [0mls ops/div/build/model/ ops/div/build/model_src/ 2>/dev/null
+ops/div/build/model/:
+libQnnDivModel.so
+
+ops/div/build/model_src/:
+model_div.cpp
+[0m
+[0m$ [0mls ops/exp/ ops/exp/build/ 2>/dev/null; echo "---"; ls ops/div/ 2>/dev/null
+ops/exp/:
+build
+logs
+outputs
+patches
+spec.md
+
+ops/exp/build/:
+model_src
+src
+---
+build
+inputs
+logs
+outputs
+patches
+spec.md
+[0m
+[0m→ [0mRead ops/div/build/src/HEDiv.cpp
+[0m
+[0m$ [0mls ops/div/build/device_configs/ ops/div/inputs/ 2>/dev/null; echo "---"; ls ops/silu/build/device_configs/ 2>/dev/null
+ops/div/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+ops/div/inputs/:
+a.raw
+b.raw
+---
+htp_config.json
+net_run_config.json
+[0m
+[0m→ [0mRead ops/div/build/device_configs/htp_config.json
+[0m→ [0mRead ops/div/build/device_configs/net_run_config.json
+[0m→ [0mRead ops/div/patches/01.md
+[0m→ [0mRead ops/div/build/model_src/model_div.cpp
+[0m
+[0m← [0mWrite ops/exp/build/Makefile
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/exp/build/device_configs/htp_config.json
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/exp/build/device_configs/net_run_config.json
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/exp/logs/plan.md
+Wrote file successfully.
+[0m
+[0m# [0mTodos
+[✓] Phase 1 — Plan exp op (review existing scaffolding)
+[✓] Phase 2 — Code-gen exp (create Makefile, verify .cpp files)
+[•] Phase 3 — Build exp (compile + model.so)
+[ ] Phase 4 — Deploy & run on device
+[ ] Phase 5 — Compare vs numpy ref, accept cosine>=0.999, max_abs<=1e-3
+[ ] Phase 7 — Update state.json + AGENTS.md lesson
+[0m
+[0m⚙ [0mqnn-build_ndk_build {"package_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build","target":"hexagon-v81"}
+[0m⚙ [0mqnn-build_ndk_build {"package_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build","target":"aarch64-android"}
+[0m
+[0m$ [0mls ops/div/build/logs/ 2>/dev/null
+build_aarch64-android.log
+build_hexagon-v81.log
+build_x86_64-linux-clang.log
+[0m
+[0m⚙ [0mqnn-build_ndk_build {"package_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build","target":"x86_64-linux-clang"}
+[0m⚙ [0mqnn-runner_build_single_op_model {"op_name":"Exp","build_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build","op_package_name":"HEExpPackage","input_shapes":{"input":[1,1,128,128]},"output_shapes":{"output":[1,1,128,128]}}
+[0m
+[0m# [0mTodos
+[✓] Phase 1 — Plan exp op (review existing scaffolding)
+[✓] Phase 2 — Code-gen exp (create Makefile, verify .cpp files)
+[✓] Phase 3 — Build exp (compile + model.so)
+[•] Phase 4 — Deploy & run on device
+[ ] Phase 5 — Compare vs numpy ref, accept cosine>=0.999, max_abs<=1e-3
+[ ] Phase 7 — Update state.json + AGENTS.md lesson
+[0m
+[0m⚙ [0mqnn-adb_adb_shell {"command":"pkill -9 -f qnn_llama_runner; pkill -9 -f qnn-net-run; sleep 1; echo done"}
+[0m⚙ [0mqnn-runner_generate_test_inputs {"op_name":"exp","shapes":{"input":[1,1,128,128]}}
+[0m⚙ [0mqnn-runner_ensure_device_runtime Unknown
+[0m⚙ [0mqnn-runner_run_custom_op_on_device {"build_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build","input_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/baseline/test_inputs/exp","op_name":"exp","output_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs","interface_provider":"HEExpPackageInterfaceProvider"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"ls /data/local/tmp/qnn_op_test/"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cat /data/local/tmp/qnn_op_test/htp_config.json"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && export LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && export ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && /data/local/tmp/qnn-net-run --backend /data/local/tmp/libQnnHtp.so --model /data/local/tmp/qnn_op_test/libQnnExpModel.so --input_list /data/local/tmp/qnn_op_test/input_list.txt --output_dir /data/local/tmp/qnn_op_test/output --op_packages /data/local/tmp/qnn_op_test/libQnnHtpExp.so:HEExpPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/htp/libQnnHtpExp.so:HEExpPackageInterfaceProvider:HTP --config_file /data/local/tmp/qnn_op_test/net_run_config.json --use_native_input_files --use_native_output_files 2>&1 | tail -40","timeout":120}
+[0m→ [0mRead ops/exp/build/model_src/model_exp.cpp[90m [offset=60, limit=30][0m
+[Round 5] Agent exited. Sleeping 5s...
+[Round 6] 11 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mfind . -name "state.json" -not -path "*/node_modules/*" 2>/dev/null | head -20
+./state.json
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/exp/ 2>/dev/null && echo "---" && ls ops/silu/build/src/ 2>/dev/null
+build
+logs
+outputs
+patches
+spec.md
+---
+SiLU.cpp
+SiLU.cpp.bak
+SiLUInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/spec.md
+[0m→ [0mRead ops/silu/build/src/SiLU.cpp
+[0m→ [0mRead ops/silu/build/src/SiLUInterface.cpp
+[0m
+[0m$ [0mls ops/silu/build/ && echo "---" && ls ops/silu/build/model_src/ 2>/dev/null && echo "---" && ls ops/div/build/src/ 2>/dev/null
+build
+cache
+device_configs
+gen_SiLU.log
+logs
+Makefile
+model
+model_src
+SiLU.xml
+src
+---
+model_silu.cpp
+---
+HEDiv.cpp
+HEDivInterface.cpp
+[0m
+[0m→ [0mRead ops/div/build/src/HEDiv.cpp
+[0m→ [0mRead ops/div/build/src/HEDivInterface.cpp
+[0m
+[0m$ [0mls ops/div/build/ && echo "---" && ls ops/div/build/model_src/ 2>/dev/null && echo "---" && ls ops/div/ 
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+---
+model_div.cpp
+---
+build
+inputs
+logs
+outputs
+patches
+spec.md
+[0m
+[0m→ [0mRead ops/div/build/Makefile
+[0m→ [0mRead ops/div/build/model_src/model_div.cpp
+[0m
+[0m$ [0mls ops/div/inputs/ 2>/dev/null && echo "---" && ls ops/div/outputs/ 2>/dev/null && echo "---" && ls ops/div/outputs/device/Result_0/ 2>/dev/null && echo "---" && ls ops/div/build/device_configs/ 2>/dev/null
+a.raw
+b.raw
+---
+device
+ref
+---
+output_native.raw
+---
+htp_config.json
+net_run_config.json
+[0m
+[0m# [0mTodos
+[•] Phase 1 - Plan exp implementation
+[ ] Phase 2 - Generate src + interface + model + Makefile + device_configs
+[ ] Phase 3 - Build all targets + model
+[ ] Phase 4 - Generate inputs, push, run on device
+[ ] Phase 5 - Compare with reference, validate cosine≥0.999, max_abs≤1e-3
+[ ] Phase 7 - Update state.json + extract lesson
+[0m
+Plan for HEExp:
+- Unary element-wise op (single input/output, same shape)
+- Pattern: clone silu template, replace kernel body with `expf(x)`
+- Shape [1,1,128,128] = 16384 elements; HTP scheduler budget is fine
+- fp16 overflow risk: with seed=42 N(0,1) inputs no x > 11.09, but kernel uses fp32 promotion + natural fp16 saturation on store
+- Op naming: `HEExp` / package `HEExpPackage` / lib `libQnnHtpExp.so`
+[0m$ [0mmkdir -p ops/exp/build/src ops/exp/build/model_src ops/exp/build/device_configs ops/exp/inputs ops/exp/outputs/ref ops/exp/outputs/device ops/exp/logs ops/exp/patches
+(no output)
+[0m
+[0m← [0mWrite ops/exp/logs/plan.md
+Wrote file successfully.
+[0m
+[0m# [0mTodos
+[✓] Phase 1 - Plan exp implementation
+[•] Phase 2 - Generate src + interface + model + Makefile + device_configs
+[ ] Phase 3 - Build all targets + model
+[ ] Phase 4 - Generate inputs, push, run on device
+[ ] Phase 5 - Compare with reference, validate cosine≥0.999, max_abs≤1e-3
+[ ] Phase 7 - Update state.json + extract lesson
+[0m
+[0m← [0mWrite ops/exp/build/src/HEExp.cpp
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/exp/build/src/HEExpInterface.cpp
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/exp/build/model_src/model_exp.cpp
+Wrote file successfully.
+[0m
+[Round 6] Agent exited. Sleeping 5s...
+[Round 7] 11 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mls
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/exp/ 2>/dev/null && echo "---" && ls ops/div/build/src/ 2>/dev/null
+build
+inputs
+logs
+outputs
+patches
+spec.md
+---
+HEDiv.cpp
+HEDivInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/spec.md
+[0m
+[0m# [0mTodos
+[•] Phase 1: Plan exp op (study div template, identify fp16 overflow risks)
+[ ] Phase 2: Code-gen src/HEExp.cpp, Interface, model, Makefile
+[ ] Phase 3: Build all 3 targets + model
+[ ] Phase 4: Generate fp16 inputs, push, run on device
+[ ] Phase 5: Compare output_native vs numpy ref
+[ ] Phase 7: Update state.json + AGENTS.md lesson
+[0m
+[0m$ [0mls ops/silu/build/src/ ops/silu/build/model_src/ ops/silu/build/ 2>/dev/null
+ops/silu/build/:
+build
+cache
+device_configs
+gen_SiLU.log
+logs
+Makefile
+model
+model_src
+SiLU.xml
+src
+
+ops/silu/build/model_src/:
+model_silu.cpp
+
+ops/silu/build/src/:
+SiLU.cpp
+SiLU.cpp.bak
+SiLUInterface.cpp
+[0m
+[0m→ [0mRead ops/silu/build/src/SiLU.cpp
+[0m→ [0mRead ops/div/build/src/HEDiv.cpp
+[0m→ [0mRead ops/div/build/src/HEDivInterface.cpp
+[0m→ [0mRead ops/div/build/Makefile
+[0m→ [0mRead ops/silu/build/model_src/model_silu.cpp
+[0m→ [0mRead ops/div/build/model_src/model_div.cpp
+[0m
+[0m$ [0mls ops/div/build/device_configs/ ops/div/inputs/ ops/div/outputs/ 2>/dev/null
+ops/div/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+ops/div/inputs/:
+a.raw
+b.raw
+
+ops/div/outputs/:
+device
+ref
+[0m
+[0m→ [0mRead ops/div/build/device_configs/htp_config.json
+[0m→ [0mRead ops/div/build/device_configs/net_run_config.json
+[0m→ [0mRead ops/div/patches/01.md
+[0m
+[0m$ [0mgrep -E "InterfaceProvider|sg_packageName|sg_opName" ops/silu/build/src/SiLUInterface.cpp | head -10
+static constexpr auto sg_packageName = THIS_PKG_NAME_STR;
+static constexpr auto sg_opName      = "HESiLU";
+static std::array<const char*, 1> sg_opNames{{sg_opName}};
+    sg_packageName, sg_opNames.data(), nullptr, (uint32_t)sg_opNames.size(),
+    if (std::string(sg_packageName) != opConfig.v1.packageName)
+    if (std::string(opConfig.v1.typeName) == sg_opName) {
+Qnn_ErrorHandle_t SiLUInterfaceProvider(QnnOpPackage_Interface_t* interface) {
+[0m
+[0m$ [0mgrep -A 20 "def generate_test_inputs\|seed=42\|float16" mcp_servers/qnn_runner_server.py | head -60
+return out.astype(np.float16)
+
+
+def _numpy_swiglu(gate: np.ndarray, up: np.ndarray) -> np.ndarray:
+    """SwiGLU: y = silu(gate) * up"""
+    g = gate.astype(np.float32)
+    u = up.astype(np.float32)
+    silu = g * (1.0 / (1.0 + np.exp(-g)))  # silu(x) = x * sigmoid(x)
+    return (silu * u).astype(np.float16)
+
+
+def _numpy_rope(q: np.ndarray, k: np.ndarray,
+                cos_cache: np.ndarray, sin_cache: np.ndarray):
+    """RoPE: apply rotary position embedding to q and k."""
+    def _rotate_half(x):
+        x1 = x[..., :x.shape[-1]//2]
+        x2 = x[..., x.shape[-1]//2:]
+        return np.concatenate([-x2, x1], axis=-1)
+
+    q_f = q.astype(np.float32)
+    k_f = k.astype(np.float32)
+    cos_f = cos_cache.astype(np.float32)
+    sin_f = sin_cache.astype(np.float32)
+    q_out = (q_f * cos_f + _rotate_half(q_f) * sin_f).astype(np.float16)
+    k_out = (k_f * cos_f + _rotate_half(k_f) * sin_f).astype(np.float16)
+    return q_out, k_out
+
+
+def _numpy_softmax(x: np.ndarray) -> np.ndarray:
+    """Softmax: numerically stable."""
+    xf = x.astype(np.float32)
+    xf = xf - np.max(xf, axis=-1, keepdims=True)
+    e = np.exp(xf)
+    return (e / np.sum(e, axis=-1, keepdims=True)).astype(np.float16)
+
+
+def _numpy_matmul(a: np.ndarray, b: np.ndarray) -> np.ndarray:
+    """MatMul: C = A @ B"""
+    return (a.astype(np.float32) @ b.astype(np.float32)).astype(np.float16)
+
+
+NUMPY_OPS = {
+    "rmsnorm": _numpy_rmsnorm,
+    "swiglu": _numpy_swiglu,
+    "rope": _numpy_rope,
+    "softmax": _numpy_softmax,
+    "matmul": _numpy_matmul,
+}
+
+
+@mcp.tool()
+def generate_test_inputs(op_name: str, shapes: dict, dtype: str = "float16",
+                         seed: int = 42) -> dict:
+    """使用固定 seed 生成确定性测试输入，保存为 .raw 文件。
+    shapes: {"input_name": [dim1, dim2, ...], ...}
+    """
+    rng = np.random.default_rng(seed)
+    dt = {"float16": np.float16, "float32": np.float32}.get(dtype, np.float16)
+
+    output_dir = str(PROJECT_ROOT / "baseline" / "test_inputs" / op_name)
+[0m
+[0m$ [0mgrep -n "exp\|\"exp\"" mcp_servers/qnn_runner_server.py | head -20
+86:    silu = g * (1.0 / (1.0 + np.exp(-g)))  # silu(x) = x * sigmoid(x)
+111:    e = np.exp(xf)
+385:           f"export LD_LIBRARY_PATH=/data/local/tmp:{DEVICE_WORK_DIR}:$LD_LIBRARY_PATH && "
+386:           f"export ADSP_LIBRARY_PATH=\"{htp_subdir};/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && "
+[0m
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [offset=340, limit=120][0m
+[0m
+[0m$ [0mls ops/exp/build/ 2>/dev/null; ls ops/exp/build/src/ 2>/dev/null
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m
+[0m$ [0mls -la ops/exp/build/build/ ops/exp/build/model/ 2>/dev/null; ls ops/exp/inputs/ ops/exp/outputs/ 2>/dev/null
+ops/exp/build/build/:
+total 20
+drwxrwxr-x 5 yinrun yinrun 4096  5月 29 15:11 .
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 15:11 ..
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:11 aarch64-android
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:10 hexagon-v81
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:11 x86_64-linux-clang
+
+ops/exp/build/model/:
+total 2376
+drwxrwxr-x 2 yinrun yinrun    4096  5月 29 15:11 .
+drwxrwxr-x 8 yinrun yinrun    4096  5月 29 15:11 ..
+-rwxrwxr-x 1 yinrun yinrun 2424480  5月 29 15:11 libQnnExpModel.so
+ops/exp/inputs/:
+
+ops/exp/outputs/:
+device
+ref
+[0m
+[0m$ [0mls -la ops/exp/build/build/aarch64-android/ ops/exp/build/build/hexagon-v81/ 2>/dev/null
+ops/exp/build/build/aarch64-android/:
+total 2092
+drwxrwxr-x 2 yinrun yinrun    4096  5月 29 15:11 .
+drwxrwxr-x 5 yinrun yinrun    4096  5月 29 15:11 ..
+-rw-rw-r-- 1 yinrun yinrun    9460  5月 29 15:11 HEExp.d
+-rw-rw-r-- 1 yinrun yinrun   10040  5月 29 15:11 HEExpInterface.d
+-rw-rw-r-- 1 yinrun yinrun  409160  5月 29 15:11 HEExpInterface.o
+-rw-rw-r-- 1 yinrun yinrun  439440  5月 29 15:11 HEExp.o
+-rwxrwxr-x 1 yinrun yinrun 1255536  5月 29 15:11 libQnnHtpExp.so
+
+ops/exp/build/build/hexagon-v81/:
+total 164
+drwxrwxr-x 2 yinrun yinrun  4096  5月 29 15:10 .
+drwxrwxr-x 5 yinrun yinrun  4096  5月 29 15:11 ..
+-rw-rw-r-- 1 yinrun yinrun  8471  5月 29 15:10 HEExp.d
+-rw-rw-r-- 1 yinrun yinrun  9051  5月 29 15:10 HEExpInterface.d
+-rw-rw-r-- 1 yinrun yinrun 41700  5月 29 15:10 HEExpInterface.o
+-rw-rw-r-- 1 yinrun yinrun 22992  5月 29 15:10 HEExp.o
+-rwxrwxr-x 1 yinrun yinrun 63512  5月 29 15:10 libQnnHtpExp.so
+[0m
+[0m$ [0mls -la ops/exp/outputs/device/ ops/exp/outputs/ref/ ops/exp/build/device_configs/ ops/exp/build/model_src/ 2>/dev/null
+ops/exp/build/device_configs/:
+total 16
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:10 .
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 15:11 ..
+-rw-rw-r-- 1 yinrun yinrun  177  5月 29 15:12 htp_config.json
+-rw-rw-r-- 1 yinrun yinrun  134  5月 29 15:12 net_run_config.json
+
+ops/exp/build/model_src/:
+total 12
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:01 .
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 15:11 ..
+-rw-rw-r-- 1 yinrun yinrun 3339  5月 29 15:19 model_exp.cpp
+
+ops/exp/outputs/device/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:17 .
+drwxrwxr-x 4 yinrun yinrun 4096  5月 29 15:17 ..
+
+ops/exp/outputs/ref/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:17 .
+drwxrwxr-x 4 yinrun yinrun 4096  5月 29 15:17 ..
+[0m
+[0m→ [0mRead ops/exp/build/model_src/model_exp.cpp
+[0m→ [0mRead ops/exp/build/device_configs/htp_config.json
+[0m
+[0m← [0mWrite ops/exp/logs/plan.md
+Wrote file successfully.
+[0m
+[0m# [0mTodos
+[✓] Phase 1: Plan exp op (study div template, identify fp16 overflow risks)
+[✓] Phase 2: Code-gen src/HEExp.cpp, Interface, model, Makefile
+[✓] Phase 3: Build all 3 targets + model
+[•] Phase 4: Generate fp16 inputs, push, run on device
+[ ] Phase 5: Compare output_native vs numpy ref
+[ ] Phase 7: Update state.json + AGENTS.md lesson
+[0m
+[0m⚙ [0mqnn-runner_generate_test_inputs {"op_name":"exp","shapes":{"in":[1,1,128,128]},"dtype":"float16","seed":42}
+[0m⚙ [0mqnn-adb_device_health Unknown
+[0m
+[0m$ [0mcp baseline/test_inputs/exp/in.raw ops/exp/inputs/in.raw && ls -la ops/exp/inputs/
+total 40
+drwxrwxr-x 2 yinrun yinrun  4096  5月 29 15:25 .
+drwxrwxr-x 7 yinrun yinrun  4096  5月 29 15:17 ..
+-rw-rw-r-- 1 yinrun yinrun 32768  5月 29 15:25 in.raw
+[0m
+[0m⚙ [0mqnn-adb_adb_shell {"command":"pkill -9 -f qnn_llama_runner 2>/dev/null; sleep 1; echo done"}
+[0m⚙ [0mqnn-runner_ensure_device_runtime Unknown
+[0m⚙ [0mqnn-runner_run_custom_op_on_device {"build_dir":"ops/exp/build","input_dir":"ops/exp/inputs","interface_provider":"HEExpPackageInterfaceProvider","op_name":"Exp","output_dir":"ops/exp/outputs/device"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/device_configs/htp_config.json","remote_path":"/data/local/tmp/qnn_op_test/htp_config.json"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/device_configs/net_run_config.json","remote_path":"/data/local/tmp/qnn_op_test/net_run_config.json"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && export LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && export ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && rm -rf output && /data/local/tmp/qnn-net-run --backend /data/local/tmp/libQnnHtp.so --model /data/local/tmp/qnn_op_test/libQnnExpModel.so --input_list /data/local/tmp/qnn_op_test/input_list.txt --output_dir /data/local/tmp/qnn_op_test/output --op_packages /data/local/tmp/qnn_op_test/libQnnHtpExp.so:HEExpPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/htp/libQnnHtpExp.so:HEExpPackageInterfaceProvider:HTP --config_file /data/local/tmp/qnn_op_test/net_run_config.json --use_native_input_files --use_native_output_files 2>&1 | tail -40","timeout":120}
+Stale model.so — the on-device error says op type is "Exp" but current source says "HEExp". Need to rebuild model.so.
+[0m⚙ [0mqnn-runner_build_single_op_model {"build_dir":"ops/exp/build","input_shapes":{"in":[1,1,128,128]},"op_name":"Exp","op_package_name":"HEExpPackage","output_shapes":{"output":[1,1,128,128]}}
+[0m
+[0m$ [0mgrep -E "addNode|HEExp|\"Exp\"" ops/exp/build/model_src/model_exp.cpp
+VALIDATE(model.addNode(QNN_OPCONFIG_VERSION_1,
+      "HEExpPackage",  // package name
+      "Exp",       // op type
+[0m
+[0m⚙ [0mqnn-runner_build_single_op_model {"build_dir":"ops/exp/build","input_shapes":{"in":[1,1,128,128]},"op_name":"HEExp","op_package_name":"HEExpPackage","output_shapes":{"output":[1,1,128,128]}}
+[0m
+[0m$ [0mgrep -E "graph|addNode|composeGraph" ops/exp/build/model_src/model_heexp.cpp | head -10
+ModelError_t QnnModel_composeGraphs(
+    const GraphConfigInfo_t** graphsConfigInfo,
+    GraphInfoPtr_t** graphsInfo,
+  const QnnGraph_Config_t** graphConfigs = nullptr;
+  VALIDATE(getQnnGraphConfigFromInfo("HEExp_graph",
+      graphsConfigInfo, numGraphsConfigInfo, graphConfigs), err);
+      "HEExp_graph", debug, DO_GRAPH_NODE_VALIDATIONS,
+      graphConfigs), err);
+  VALIDATE(model.addNode(QNN_OPCONFIG_VERSION_1,
+  VALIDATE(model.finalize(graphsInfo, numGraphsInfo), err);
+[0m
+[0m$ [0mls ops/div/build/model/ ops/div/build/model_src/
+ops/div/build/model/:
+libQnnDivModel.so
+
+ops/div/build/model_src/:
+model_div.cpp
+[0m
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [limit=80, offset=459][0m
+The auto-generated model uses `model.finalize()` which causes segfaults (AGENTS.md L1). I'll edit the original `model_exp.cpp` (which uses `getGraphInfoFromModels()`) to fix only the op type from "Exp" → "HEExp".
+[0m
+[0m$ [0mgrep -n "Exp\|HEExp" ops/exp/build/model_src/model_exp.cpp
+24:  VALIDATE(getQnnGraphConfigFromInfo("Exp_graph",
+27:      "Exp_graph", debug, DO_GRAPH_NODE_VALIDATIONS,
+66:      "Exp_node",  // node name
+67:      "HEExpPackage",  // package name
+68:      "Exp",       // op type
+[0m
+[0m✗ [0mEdit ops/exp/build/model_src/model_exp.cpp failed
+[91m[1mError: [0mCould not find oldString in the file. It must match exactly, including whitespace, indentation, and line endings.
+[0m✗ [0mEdit ops/exp/build/model_src/model_exp.cpp failed
+[91m[1mError: [0mCould not find oldString in the file. It must match exactly, including whitespace, indentation, and line endings.
+[0m→ [0mRead ops/exp/build/model_src/model_exp.cpp
+[0m
+[0m← [0mWrite ops/exp/build/model_src/model_exp.cpp
+Wrote file successfully.
+[0m
+[Round 7] Agent exited. Sleeping 5s...
+[Round 8] 11 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m→ [0mRead state.json
+[0m→ [0mRead ops/exp/spec.md
+[0m
+[0m$ [0mls ops/silu/build/src/ ops/silu/build/model_src/ ops/silu/build/ 2>&1
+ops/silu/build/:
+build
+cache
+device_configs
+gen_SiLU.log
+logs
+Makefile
+model
+model_src
+SiLU.xml
+src
+
+ops/silu/build/model_src/:
+model_silu.cpp
+
+ops/silu/build/src/:
+SiLU.cpp
+SiLU.cpp.bak
+SiLUInterface.cpp
+[0m
+[0m$ [0mls ops/exp/ 2>&1
+build
+inputs
+logs
+outputs
+patches
+spec.md
+[0m
+[0m→ [0mRead ops/silu/build/src/SiLU.cpp
+[0m→ [0mRead ops/silu/build/Makefile
+[0m→ [0mRead ops/silu/build/src/SiLUInterface.cpp
+[0m→ [0mRead ops/silu/build/model_src/model_silu.cpp
+[0m→ [0mRead ops/silu/build/device_configs
+[0m
+[0m$ [0mls ops/silu/build/build/ 2>&1; ls ops/silu/build/build/aarch64-android 2>&1; ls ops/silu/build/build/hexagon-v81 2>&1
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+libQnnHtpSiLU.so
+SiLU.d
+SiLUInterface.d
+SiLUInterface.o
+SiLU.o
+libQnnHtpSiLU.so
+SiLU.d
+SiLUInterface.d
+SiLUInterface.o
+SiLU.o
+[0m
+[0m$ [0mls ops/exp/build 2>&1; ls ops/exp/inputs 2>&1; ls ops/exp/outputs 2>&1; ls ops/exp/patches 2>&1
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+in.raw
+device
+ref
+[0m
+[0m$ [0mls -la ops/exp/build/ 2>&1; ls -la ops/exp/inputs/ 2>&1; ls -la ops/exp/outputs/ 2>&1; ls -la ops/exp/patches/ 2>&1; ls -la ops/exp/logs/ 2>&1
+total 36
+drwxrwxr-x 8 yinrun yinrun 4096  5月 29 15:11 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 15:17 ..
+drwxrwxr-x 5 yinrun yinrun 4096  5月 29 15:11 build
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:10 device_configs
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:11 logs
+-rw-rw-r-- 1 yinrun yinrun 3554  5月 29 15:09 Makefile
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:27 model
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:27 model_src
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:00 src
+total 40
+drwxrwxr-x 2 yinrun yinrun  4096  5月 29 15:25 .
+drwxrwxr-x 7 yinrun yinrun  4096  5月 29 15:17 ..
+-rw-rw-r-- 1 yinrun yinrun 32768  5月 29 15:25 in.raw
+total 16
+drwxrwxr-x 4 yinrun yinrun 4096  5月 29 15:17 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 15:17 ..
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:17 device
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:17 ref
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 28 20:29 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 15:17 ..
+total 12
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:10 .
+drwxrwxr-x 7 yinrun yinrun 4096  5月 29 15:17 ..
+-rw-rw-r-- 1 yinrun yinrun  633  5月 29 15:25 plan.md
+[0m
+[0m→ [0mRead ops/exp/logs/plan.md
+[0m
+[0m$ [0mls ops/exp/build/src/ ops/exp/build/model_src/ ops/exp/build/model/ ops/exp/build/build/ ops/exp/device_configs/ 2>&1
+ls: cannot access 'ops/exp/device_configs/': No such file or directory
+ops/exp/build/build/:
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+
+ops/exp/build/model/:
+libQnnExpModel.so
+libQnnHEExpModel.so
+
+ops/exp/build/model_src/:
+model_exp.cpp
+model_heexp.cpp
+
+ops/exp/build/src/:
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m$ [0mls ops/exp/build/build/aarch64-android/ ops/exp/build/build/hexagon-v81/ ops/exp/build/build/x86_64-linux-clang/ 2>&1
+ops/exp/build/build/aarch64-android/:
+HEExp.d
+HEExpInterface.d
+HEExpInterface.o
+HEExp.o
+libQnnHtpExp.so
+
+ops/exp/build/build/hexagon-v81/:
+HEExp.d
+HEExpInterface.d
+HEExpInterface.o
+HEExp.o
+libQnnHtpExp.so
+
+ops/exp/build/build/x86_64-linux-clang/:
+HEExp.d
+HEExpInterface.d
+HEExpInterface.o
+HEExp.o
+libQnnHtpExp.so
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m
+[0m$ [0mls ops/exp/build/device_configs/ 2>&1; cat ops/exp/build/device_configs/htp_config.json 2>&1; echo "---"; cat ops/exp/build/device_configs/net_run_config.json 2>&1
+htp_config.json
+net_run_config.json
+{
+  "graphs": [
+    {
+      "graph_names": [
+        "Exp_graph"
+      ],
+      "vtcm_mb": 8,
+      "O": 3,
+      "hvx_threads": 4,
+      "fp16_relaxed_precision": 1
+    }
+  ]
+}---
+{
+  "backend_extensions": {
+    "shared_library_path": "libQnnHtpNetRunExtensions.so",
+    "config_file_path": "htp_config.json"
+  }
+}
+[0m
+[0m→ [0mRead ops/exp/build/Makefile
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/model_src/model_exp.cpp
+[0m
+[0m$ [0mfile ops/exp/build/model/*.so 2>&1
+ops/exp/build/model/libQnnExpModel.so:   ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, with debug_info, not stripped
+ops/exp/build/model/libQnnHEExpModel.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, with debug_info, not stripped
+[0m
+[0m$ [0mfile ops/exp/build/build/aarch64-android/libQnnHtpExp.so ops/exp/build/build/hexagon-v81/libQnnHtpExp.so 2>&1; nm -D ops/exp/build/build/aarch64-android/libQnnHtpExp.so 2>&1 | grep -i provider
+ops/exp/build/build/aarch64-android/libQnnHtpExp.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, with debug_info, not stripped
+ops/exp/build/build/hexagon-v81/libQnnHtpExp.so:     ELF 32-bit LSB shared object, QUALCOMM DSP6, version 1 (SYSV), dynamically linked, not stripped
+000000000003cb20 T HEExpPackageInterfaceProvider
+[0m
+[0m# [0mTodos
+[•] Phase 4: deploy and run HEExp on device
+[ ] Phase 5: compare device output vs numpy reference
+[ ] Phase 6: diagnose if compare fails
+[ ] Phase 7: write report and update state.json
+[0m
+[0m$ [0mls -la ops/exp/outputs/device/ ops/exp/outputs/ref/ 2>&1
+ops/exp/outputs/device/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:17 .
+drwxrwxr-x 4 yinrun yinrun 4096  5月 29 15:17 ..
+
+ops/exp/outputs/ref/:
+total 8
+drwxrwxr-x 2 yinrun yinrun 4096  5月 29 15:17 .
+drwxrwxr-x 4 yinrun yinrun 4096  5月 29 15:17 ..
+[0m
+[0m⚙ [0mqnn-adb_device_health Unknown
+[0m⚙ [0mqnn-runner_run_numpy_reference {"op_name":"exp","input_dir":"ops/exp/inputs","output_dir":"ops/exp/outputs/ref"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"pkill -9 -f qnn_llama_runner; ls /data/local/tmp/qnn_op_test/ 2>&1 | head -30"}
+[0m
+[0m$ [0mpython3 -c "
+import numpy as np
+inp = np.fromfile('ops/exp/inputs/in.raw', dtype=np.float16).reshape(1,1,128,128)
+print('input shape:', inp.shape, 'dtype:', inp.dtype, 'min:', inp.min(), 'max:', inp.max(), 'mean:', inp.mean())
+ref = np.exp(inp.astype(np.float32)).astype(np.float16)
+print('ref shape:', ref.shape, 'min:', ref.min(), 'max:', ref.max())
+ref.tofile('ops/exp/outputs/ref/out_ref.raw')
+print('saved ref to ops/exp/outputs/ref/out_ref.raw, size:', ref.nbytes)
+"
+
+input shape: (1, 1, 128, 128) dtype: float16 min: -4.39 max: 4.152 mean: -0.008286
+ref shape: (1, 1, 128, 128) min: 0.01239 max: 63.6
+saved ref to ops/exp/outputs/ref/out_ref.raw, size: 32768
+[0m
+[0m⚙ [0mqnn-adb_adb_shell {"command":"ls /data/local/tmp/qnn_op_test/ 2>&1; echo \"---\"; ls /data/local/tmp/ 2>&1 | head -30"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cat /data/local/tmp/qnn_op_test/input_list.txt; echo \"---\"; cat /data/local/tmp/qnn_op_test/htp_config.json; echo \"---\"; cat /data/local/tmp/qnn_op_test/net_run_config.json; echo \"---\"; ls /data/local/tmp/qnn_op_test/htp/"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/inputs/in.raw","remote_path":"/data/local/tmp/qnn_op_test/in.raw"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/build/hexagon-v81/libQnnHtpExp.so","remote_path":"/data/local/tmp/qnn_op_test/htp/libQnnHtpExp.so"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/device_configs/htp_config.json","remote_path":"/data/local/tmp/qnn_op_test/htp_config.json"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/device_configs/net_run_config.json","remote_path":"/data/local/tmp/qnn_op_test/net_run_config.json"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/build/aarch64-android/libQnnHtpExp.so","remote_path":"/data/local/tmp/qnn_op_test/libQnnHtpExp.so"}
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/model/libQnnExpModel.so","remote_path":"/data/local/tmp/qnn_op_test/libQnnExpModel.so"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && rm -rf output && mkdir -p output && \\\nexport LD_LIBRARY_PATH=/data/local/tmp:$LD_LIBRARY_PATH && \\\nexport ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/dsp/cdsp;/vendor/lib/rfsa/adsp;/system/lib/rfsa/adsp;/dsp\" && \\\n/data/local/tmp/qnn-net-run \\\n  --backend /data/local/tmp/libQnnHtp.so \\\n  --model /data/local/tmp/qnn_op_test/libQnnExpModel.so \\\n  --input_list /data/local/tmp/qnn_op_test/input_list.txt \\\n  --output_dir /data/local/tmp/qnn_op_test/output \\\n  --op_packages /data/local/tmp/qnn_op_test/libQnnHtpExp.so:HEExpPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/htp/libQnnHtpExp.so:HEExpPackageInterfaceProvider:HTP \\\n  --config_file /data/local/tmp/qnn_op_test/net_run_config.json \\\n  --use_native_input_files --use_native_output_files 2>&1 | tail -60","timeout":120}
+[0m
+[0m$ [0mstrings ops/exp/build/model/libQnnExpModel.so 2>&1 | grep -E "^(Exp|HEExp)" | head -10
+echo "---"
+strings ops/exp/build/model/libQnnHEExpModel.so 2>&1 | grep -E "^(Exp|HEExp)" | head -10
+Exp_node
+HEExpPackage
+Exp_graph
+ExpandedSpecialSubstitution
+ExprList
+Expressions_
+ExplicitObjectParameter
+ExprRequirement
+Exprs
+Expr
+---
+HEExp_node
+HEExpPackage
+HEExp
+HEExp_graph
+ExpandedSpecialSubstitution
+ExprList
+Expressions_
+ExplicitObjectParameter
+ExprRequirement
+Exprs
+[0m
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/model/libQnnHEExpModel.so","remote_path":"/data/local/tmp/qnn_op_test/libQnnHEExpModel.so"}
+[0m
+[0m← [0mEdit ops/exp/build/device_configs/htp_config.json
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/device_configs/htp_config.json
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/device_configs/htp_config.json
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/device_configs/htp_config.json
+@@ -1,9 +1,9 @@
+ {
+   "graphs": [
+     {
+       "graph_names": [
+-        "Exp_graph"
++        "HEExp_graph"
+       ],
+       "vtcm_mb": 8,
+       "O": 3,
+       "hvx_threads": 4,
+
+[0m
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/device_configs/htp_config.json","remote_path":"/data/local/tmp/qnn_op_test/htp_config.json"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && rm -rf output && mkdir -p output && \\\nexport LD_LIBRARY_PATH=/data/local/tmp:$LD_LIBRARY_PATH && \\\nexport ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/dsp/cdsp;/vendor/lib/rfsa/adsp;/system/lib/rfsa/adsp;/dsp\" && \\\n/data/local/tmp/qnn-net-run \\\n  --backend /data/local/tmp/libQnnHtp.so \\\n  --model /data/local/tmp/qnn_op_test/libQnnHEExpModel.so \\\n  --input_list /data/local/tmp/qnn_op_test/input_list.txt \\\n  --output_dir /data/local/tmp/qnn_op_test/output \\\n  --op_packages /data/local/tmp/qnn_op_test/libQnnHtpExp.so:HEExpPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/htp/libQnnHtpExp.so:HEExpPackageInterfaceProvider:HTP \\\n  --config_file /data/local/tmp/qnn_op_test/net_run_config.json \\\n  --use_native_input_files --use_native_output_files 2>&1 | tail -40","timeout":120}
+The HEExpModel calls `model.finalize()` which causes the double-finalize segfault (L1 lesson). Need to fix it.
+[0m
+[0m← [0mEdit ops/exp/build/model_src/model_heexp.cpp
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model_src/model_heexp.cpp
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model_src/model_heexp.cpp
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model_src/model_heexp.cpp
+@@ -73,9 +73,13 @@
+       outputTensors,     // output tensors
+       1        // numOutputs
+   ), err);
+ 
+-  VALIDATE(model.finalize(graphsInfo, numGraphsInfo), err);
++  // Do NOT call model.finalize() here — qnn-net-run host driver calls
++  // QnnGraph_finalize() itself. Calling finalize twice causes graph-prepare
++  // to segfault. (See AGENTS.md L1 — same fix as silu/exp.)
++  VALIDATE(getGraphInfoFromModels(&model, 1, graphsInfo), err);
++  *numGraphsInfo = 1;
+   return err;
+ }
+ 
+ QNN_API
+
+[0m
+[0m$ [0mls ops/silu/build/build/ 2>&1; echo "---"; find /home/yinrun/software/qualcomm/qairt/2.42.0.251225 -name "qnn-model-lib-generator*" 2>&1 | head -5
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+---
+/home/yinrun/software/qualcomm/qairt/2.42.0.251225/bin/arm64x-windows-msvc/qnn-model-lib-generator
+/home/yinrun/software/qualcomm/qairt/2.42.0.251225/bin/aarch64-windows-msvc/qnn-model-lib-generator
+/home/yinrun/software/qualcomm/qairt/2.42.0.251225/bin/x86_64-linux-clang/qnn-model-lib-generator
+/home/yinrun/software/qualcomm/qairt/2.42.0.251225/bin/x86_64-windows-msvc/qnn-model-lib-generator
+[0m
+[0m$ [0mQNN_SDK=/home/yinrun/software/qualcomm/qairt/2.42.0.251225
+$QNN_SDK/bin/x86_64-linux-clang/qnn-model-lib-generator \
+  -c ops/exp/build/model_src/model_heexp.cpp \
+  -o ops/exp/build/model \
+  -l libQnnHEExpModel \
+  -t x86_64-linux-clang 2>&1 | tail -20
+2026-05-29 15:37:33,837 -    INFO - qnn-model-lib-generator: Library target       : [['x86_64-linux-clang']]
+2026-05-29 15:37:33,837 -    INFO - qnn-model-lib-generator: Library name         : libQnnHEExpModel
+2026-05-29 15:37:33,837 -    INFO - qnn-model-lib-generator: Output directory     : ops/exp/build/model
+2026-05-29 15:37:33,837 - WARNING - qnn-model-lib-generator: Runtime will fail if .cpp needs data in .raw files when building model library
+2026-05-29 15:37:33,837 -    INFO - qnn-model-lib-generator: Output library name  : libQnnHEExpModel
+2026-05-29 15:37:34,715 -    INFO - qnn-model-lib-generator: command : ['cd /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/tmp_5749 && export QNN_MODEL_LIB_NAME=libQnnHEExpModel.so && make CXX="clang++" -f Makefile.linux-x86_64']
+2026-05-29 15:37:34,715 -    INFO - qnn-model-lib-generator: rc : 0
+2026-05-29 15:37:34,716 -    INFO - qnn-model-lib-generator: stdout : mkdir -p obj/x86_64-linux-clang
+clang++ -c -std=c++11 -march=x86-64 -O3 -fno-exceptions -fno-rtti -Wno-write-strings -DQNN_API="__attribute__((visibility(\"default\")))" -fPIC -fvisibility=hidden -Ijni/ -I/home/yinrun/software/qualcomm/qairt/2.42.0.251225/include/QNN jni/model_heexp.cpp -o obj/x86_64-linux-clang/model_heexp.o
+clang++ -c -std=c++11 -march=x86-64 -O3 -fno-exceptions -fno-rtti -Wno-write-strings -DQNN_API="__attribute__((visibility(\"default\")))" -fPIC -fvisibility=hidden -Ijni/ -I/home/yinrun/software/qualcomm/qairt/2.42.0.251225/include/QNN jni/QnnModel.cpp -o obj/x86_64-linux-clang/QnnModel.o
+clang++ -c -std=c++11 -march=x86-64 -O3 -fno-exceptions -fno-rtti -Wno-write-strings -DQNN_API="__attribute__((visibility(\"default\")))" -fPIC -fvisibility=hidden -Ijni/ -I/home/yinrun/software/qualcomm/qairt/2.42.0.251225/include/QNN jni/QnnModelPal.cpp -o obj/x86_64-linux-clang/QnnModelPal.o
+clang++ -c -std=c++11 -march=x86-64 -O3 -fno-exceptions -fno-rtti -Wno-write-strings -DQNN_API="__attribute__((visibility(\"default\")))" -fPIC -fvisibility=hidden -Ijni/ -I/home/yinrun/software/qualcomm/qairt/2.42.0.251225/include/QNN jni/QnnWrapperUtils.cpp -o obj/x86_64-linux-clang/QnnWrapperUtils.o
+mkdir -p obj/binary/x86_64-linux-clang
+touch obj/binary/extractbinary
+touch obj/binary/x86_64-linux-clang/objcopyDone
+mkdir -p libs/x86_64-linux-clang
+
+2026-05-29 15:37:34,716 -    INFO - qnn-model-lib-generator: stderr : Makefile.linux-x86_64:48: WARNING: No Binary File provided. If params are required for model, this will potentially result in undefined reference when running.
+
+2026-05-29 15:37:34,716 -    INFO - qnn-model-lib-generator: Target: x86_64-linux-clang	Library: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model/x86_64-linux-clang/libQnnHEExpModel.so
+[0m
+[0m$ [0mQNN_SDK=/home/yinrun/software/qualcomm/qairt/2.42.0.251225
+export ANDROID_NDK_ROOT=/home/yinrun/software/android-ndk-r29
+$QNN_SDK/bin/x86_64-linux-clang/qnn-model-lib-generator \
+  -c ops/exp/build/model_src/model_heexp.cpp \
+  -o ops/exp/build/model \
+  -l libQnnHEExpModel \
+  -t aarch64-android 2>&1 | tail -20
+2026-05-29 15:37:46,314 -    INFO - qnn-model-lib-generator: Model cpp file path  : ops/exp/build/model_src/model_heexp.cpp
+2026-05-29 15:37:46,314 -    INFO - qnn-model-lib-generator: Model bin file path  : None
+2026-05-29 15:37:46,314 -    INFO - qnn-model-lib-generator: Library target       : [['aarch64-android']]
+2026-05-29 15:37:46,314 -    INFO - qnn-model-lib-generator: Library name         : libQnnHEExpModel
+2026-05-29 15:37:46,314 -    INFO - qnn-model-lib-generator: Output directory     : ops/exp/build/model
+2026-05-29 15:37:46,314 - WARNING - qnn-model-lib-generator: Runtime will fail if .cpp needs data in .raw files when building model library
+2026-05-29 15:37:46,314 -    INFO - qnn-model-lib-generator: Output library name  : libQnnHEExpModel
+2026-05-29 15:37:47,492 -    INFO - qnn-model-lib-generator: command : ['cd /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/tmp_5749 && export QNN_MODEL_LIB_NAME=libQnnHEExpModel.so && export QNN_ANDROID_APP_ABIS=arm64-v8a && ndk-build; unset QNN_ANDROID_APP_ABIS']
+2026-05-29 15:37:47,493 -    INFO - qnn-model-lib-generator: rc : 0
+2026-05-29 15:37:47,493 -    INFO - qnn-model-lib-generator: stdout : Android NDK: android-16 is unsupported. Using minimum supported version android-21.    
+[arm64-v8a] Compile++      : QnnHEExpModel <= model_heexp.cpp
+[arm64-v8a] Compile++      : QnnHEExpModel <= QnnModel.cpp
+[arm64-v8a] Compile++      : QnnHEExpModel <= QnnModelPal.cpp
+[arm64-v8a] Compile++      : QnnHEExpModel <= QnnWrapperUtils.cpp
+[arm64-v8a] SharedLibrary  : libQnnHEExpModel.so
+[arm64-v8a] Install        : libQnnHEExpModel.so => libs/arm64-v8a/libQnnHEExpModel.so
+
+2026-05-29 15:37:47,493 -    INFO - qnn-model-lib-generator: stderr : jni/Android.mk:22: WARNING No Binary File provided. If params are required for model, this will potentially result in undefined reference when running.
+
+2026-05-29 15:37:47,493 -    INFO - qnn-model-lib-generator: Target: aarch64-android	Library: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model/aarch64-android/libQnnHEExpModel.so
+[0m
+[0m$ [0mls ops/exp/build/model/ ops/exp/build/model/x86_64-linux-clang/ ops/exp/build/model/aarch64-android/ 2>&1
+ops/exp/build/model/:
+aarch64-android
+libQnnExpModel.so
+libQnnHEExpModel.so
+x86_64-linux-clang
+
+ops/exp/build/model/aarch64-android/:
+libQnnHEExpModel.so
+
+ops/exp/build/model/x86_64-linux-clang/:
+libQnnHEExpModel.so
+[0m
+[0m⚙ [0mqnn-adb_adb_push {"local_path":"ops/exp/build/model/aarch64-android/libQnnHEExpModel.so","remote_path":"/data/local/tmp/qnn_op_test/libQnnHEExpModel.so"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && rm -rf output && mkdir -p output && \\\nexport LD_LIBRARY_PATH=/data/local/tmp:$LD_LIBRARY_PATH && \\\nexport ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/dsp/cdsp;/vendor/lib/rfsa/adsp;/system/lib/rfsa/adsp;/dsp\" && \\\n/data/local/tmp/qnn-net-run \\\n  --backend /data/local/tmp/libQnnHtp.so \\\n  --model /data/local/tmp/qnn_op_test/libQnnHEExpModel.so \\\n  --input_list /data/local/tmp/qnn_op_test/input_list.txt \\\n  --output_dir /data/local/tmp/qnn_op_test/output \\\n  --op_packages /data/local/tmp/qnn_op_test/libQnnHtpExp.so:HEExpPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/htp/libQnnHtpExp.so:HEExpPackageInterfaceProvider:HTP \\\n  --config_file /data/local/tmp/qnn_op_test/net_run_config.json \\\n  --use_native_input_files --use_native_output_files 2>&1 | tail -40","timeout":120}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"ls -la /data/local/tmp/qnn_op_test/output/ /data/local/tmp/qnn_op_test/output/Result_0/ 2>&1"}
+[0m⚙ [0mqnn-adb_adb_pull {"remote_path":"/data/local/tmp/qnn_op_test/output/Result_0/output_native.raw","local_path":"ops/exp/outputs/device/output_native.raw"}
+[0m⚙ [0mqnn-adb_adb_pull {"local_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/device/output_native.raw","remote_path":"/data/local/tmp/qnn_op_test/output/Result_0/output_native.raw"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"ls -la /data/local/tmp/qnn_op_test/output/Result_0/ 2>&1"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"ls /data/local/tmp/qnn_op_test/ 2>&1"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && rm -rf output && mkdir -p output && \\\nexport LD_LIBRARY_PATH=/data/local/tmp:$LD_LIBRARY_PATH && \\\nexport ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/dsp/cdsp;/vendor/lib/rfsa/adsp;/system/lib/rfsa/adsp;/dsp\" && \\\n/data/local/tmp/qnn-net-run \\\n  --backend /data/local/tmp/libQnnHtp.so \\\n  --model /data/local/tmp/qnn_op_test/libQnnHEExpModel.so \\\n  --input_list /data/local/tmp/qnn_op_test/input_list.txt \\\n  --output_dir /data/local/tmp/qnn_op_test/output \\\n  --op_packages /data/local/tmp/qnn_op_test/libQnnHtpExp.so:HEExpPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/htp/libQnnHtpExp.so:HEExpPackageInterfaceProvider:HTP \\\n  --config_file /data/local/tmp/qnn_op_test/net_run_config.json \\\n  --use_native_input_files --use_native_output_files 2>&1 | tail -10 ; \\\nls -la /data/local/tmp/qnn_op_test/output/ 2>&1; \\\nls -la /data/local/tmp/qnn_op_test/output/Result_0/ 2>&1","timeout":120}
+[0m⚙ [0mqnn-adb_adb_pull {"remote_path":"/data/local/tmp/qnn_op_test/output/Result_0/output_native.raw","local_path":"ops/exp/outputs/device/output_native.raw"}
+[0m
+[0m# [0mTodos
+[✓] Phase 4: deploy and run HEExp on device
+[•] Phase 5: compare device output vs numpy reference
+[ ] Phase 6: diagnose if compare fails
+[ ] Phase 7: write report and update state.json
+[0m
+[0m⚙ [0mtensor-compare_compare_pass {"a_path":"ops/exp/outputs/device/output_native.raw","b_path":"ops/exp/outputs/ref/out_ref.raw","cosine_min":0.999,"max_abs_max":0.001}
+[0m
+[0m# [0mTodos
+[✓] Phase 4: deploy and run HEExp on device
+[✓] Phase 5: compare device output vs numpy reference
+[•] Phase 7: write report and update state.json
+[0m
+[Round 8] Agent exited. Sleeping 5s...
+[Round 9] 11 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/ 2>/dev/null && echo "---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/div/build/src/ 2>/dev/null
+build
+inputs
+logs
+outputs
+patches
+spec.md
+---
+HEDiv.cpp
+HEDivInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/spec.md
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/ 2>/dev/null && echo "---logs---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/logs/ 2>/dev/null && echo "---patches---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/patches/ 2>/dev/null && echo "---outputs---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/ 2>/dev/null
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+---logs---
+plan.md
+---patches---
+---outputs---
+device
+ref
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/src/ 2>/dev/null && echo "---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/build/ 2>/dev/null && echo "---outputs/device---" && ls -la /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/device/ 2>/dev/null && echo "---outputs/ref---" && ls -la /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/ref/ 2>/dev/null && echo "---inputs---" && ls -la /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/inputs/ 2>/dev/null
+HEExp.cpp
+HEExpInterface.cpp
+---
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+---outputs/device---
+total 40
+drwxrwxr-x 2 yinrun yinrun  4096  5月 29 15:40 .
+drwxrwxr-x 4 yinrun yinrun  4096  5月 29 15:17 ..
+-rw-r--r-- 1 yinrun yinrun 32768  5月 29 15:40 output_native.raw
+---outputs/ref---
+total 40
+drwxrwxr-x 2 yinrun yinrun  4096  5月 29 15:34 .
+drwxrwxr-x 4 yinrun yinrun  4096  5月 29 15:17 ..
+-rw-rw-r-- 1 yinrun yinrun 32768  5月 29 15:34 out_ref.raw
+---inputs---
+total 40
+drwxrwxr-x 2 yinrun yinrun  4096  5月 29 15:25 .
+drwxrwxr-x 7 yinrun yinrun  4096  5月 29 15:17 ..
+-rw-rw-r-- 1 yinrun yinrun 32768  5月 29 15:25 in.raw
+[0m
+[0m⚙ [0mtensor-compare_compare_pass {"a_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/device/output_native.raw","b_path":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/ref/out_ref.raw","cosine_min":0.999,"max_abs_max":0.001,"dtype":"float16"}
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m
+[0m$ [0mpython3 -c "
+import numpy as np
+inp = np.fromfile('/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/inputs/in.raw', dtype=np.float16)
+ref = np.fromfile('/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/ref/out_ref.raw', dtype=np.float16)
+dev = np.fromfile('/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/device/output_native.raw', dtype=np.float16)
+print(f'input shape={inp.shape} min={inp.min():.4f} max={inp.max():.4f} mean={inp.mean():.4f}')
+print(f'ref   min={ref.min():.4f} max={ref.max():.4f}  has_inf={np.isinf(ref).any()}  has_nan={np.isnan(ref).any()}')
+print(f'dev   min={dev.min():.4f} max={dev.max():.4f}  has_inf={np.isinf(dev).any()}  has_nan={np.isnan(dev).any()}')
+print(f'bit-exact: {np.array_equal(ref.view(np.uint16), dev.view(np.uint16))}')
+"
+
+input shape=(16384,) min=-4.3906 max=4.1523 mean=-0.0083
+ref   min=0.0124 max=63.5938  has_inf=False  has_nan=False
+dev   min=0.0124 max=63.5938  has_inf=False  has_nan=False
+bit-exact: True
+[0m
+Device artifact 已存在且 bit-exact 匹配（L6 lesson 场景：上次 session 跑完没更新 state）。直接收尾 exp，让 run_loop 下次拾起 rsqrt。
+[0m← [0mWrite ops/exp/patches/01.md
+Wrote file successfully.
+[0m
+[0m← [0mEdit state.json
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+@@ -243,16 +243,23 @@
+   "started_at": "2026-05-29T10:00:00Z",
+   "completed_at": "2026-05-29T14:55:00Z"
+ },
+ "exp": {
+-  "status": "in_progress",
+-  "iterations": 0,
+-  "metrics": null,
+-  "report_path": null,
++  "status": "completed",
++  "iterations": 1,
++  "metrics": {
++    "cosine": 1.0,
++    "max_abs_err": 0.0,
++    "relative_error": 0.0,
++    "shape": [1, 1, 128, 128],
++    "dtype": "fp16",
++    "note": "bit-exact match — device output uint16-equal to numpy ref; input range [-4.39, 4.15] safely below fp16 exp overflow threshold ~11.09"
++  },
++  "report_path": "ops/exp/patches/01.md",
+   "duration_min": null,
+   "session_id": "builder-exp-001",
+   "started_at": "2026-05-29T15:00:00Z",
+-  "completed_at": null
++  "completed_at": "2026-05-29T15:40:00Z"
+ },
+ "rsqrt": {
+   "status": "pending",
+   "iterations": 0,
+
+[0m
+[0m← [0mEdit state.json
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+@@ -1,8 +1,8 @@
+ {
+   "version": 1,
+   "started_at": "2026-05-27T00:00:00Z",
+-  "updated_at": "2026-05-29T14:55:00Z",
++  "updated_at": "2026-05-29T15:45:00Z",
+   "session_id": "orchestrator-001",
+   "config": {
+     "model": "kiro-api/claude-opus-4.7",
+     "qnn_sdk_version": "2.42",
+
+[0m
+[0m← [0mEdit state.json
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+@@ -361,9 +361,9 @@
+     "completed_at": null
+   }
+ },
+ "global": {
+-  "completed_count": 10,
++  "completed_count": 11,
+   "permanent_fail_count": 0,
+   "consecutive_fails": 0,
+   "total_lessons": 6
+ }
+
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/ 2>/dev/null && echo "---spec---" && cat /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/spec.md 2>/dev/null
+build
+logs
+outputs
+patches
+spec.md
+---spec---
+# Rsqrt Op Spec
+
+## 数学定义
+y = 1 / sqrt(x) (element-wise)
+
+## 输入输出
+| 名称 | Shape | DType |
+|------|-------|-------|
+| input | [1, 1, 128, 1] | float16 |
+| output | [1, 1, 128, 1] | float16 |
+
+## 用途
+RMSNorm 中 rsqrt(mean(x²) + eps)
+
+## 数值陷阱
+- x=0 → inf
+- 负数输入 → NaN
+- Quake fast rsqrt + Newton iteration 可提高精度
+
+## 验收标准
+- cosine ≥ 0.999, max_abs ≤ 1e-3
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/ 2>/dev/null && echo "---logs---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/logs/ 2>/dev/null && echo "---patches---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/patches/ 2>/dev/null && echo "---outputs---" && find /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/outputs/ -type f 2>/dev/null
+model_src
+src
+---logs---
+---patches---
+---outputs---
+[0m
+[0m# [0mTodos
+[•] Phase 1: Plan rsqrt
+[ ] Phase 2: Code-gen (HERsqrt.cpp, Interface, model, Makefile)
+[ ] Phase 3: Build all 3 targets + model.so
+[ ] Phase 4: Generate inputs, push, run on device
+[ ] Phase 5: Compare device output vs numpy ref
+[ ] Phase 7: Update state.json + AGENTS.md lesson
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/ 2>/dev/null
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/:
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/:
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/src/:
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/Makefile
+[0m→ [0mRead ops/exp/build/model_src
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp
+[0m
+[0m← [0mWrite ops/rsqrt/logs/plan.md
+Wrote file successfully.
+[0m
+[0m# [0mTodos
+[✓] Phase 1: Plan rsqrt
+[•] Phase 2: Code-gen (HERsqrt.cpp, Interface, model, Makefile)
+[ ] Phase 3: Build all 3 targets + model.so
+[ ] Phase 4: Generate inputs, push, run on device
+[ ] Phase 5: Compare device output vs numpy ref
+[ ] Phase 7: Update state.json + AGENTS.md lesson
+[0m
+[Round 9] Agent exited. Sleeping 5s...
+[Round 10] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/rsqrt/ 2>/dev/null && echo "---" && ls ops/silu/build/src/ 2>/dev/null
+build
+logs
+outputs
+patches
+spec.md
+---
+SiLU.cpp
+SiLU.cpp.bak
+SiLUInterface.cpp
+[0m
+[0m→ [0mRead ops/rsqrt/spec.md
+[0m
+[0m$ [0mls ops/exp/build/ 2>/dev/null && echo "---src---" && ls ops/exp/build/src/ 2>/dev/null && echo "---model---" && ls ops/exp/build/model_src/ 2>/dev/null
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+---src---
+HEExp.cpp
+HEExpInterface.cpp
+---model---
+model_exp.cpp
+model_heexp.cpp
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp
+[0m→ [0mRead ops/exp/build/Makefile
+[0m
+[0m$ [0mls ops/exp/build/device_configs/ 2>/dev/null && echo "---" && ls ops/exp/build/model/ 2>/dev/null && echo "---inputs---" && ls ops/exp/build/inputs/ 2>/dev/null
+htp_config.json
+net_run_config.json
+---
+aarch64-android
+libQnnExpModel.so
+libQnnHEExpModel.so
+x86_64-linux-clang
+---inputs---
+[0m
+[0m→ [0mRead ops/exp/build/device_configs/htp_config.json
+[0m→ [0mRead ops/exp/build/device_configs/net_run_config.json
+[0m
+[0m# [0mTodos
+[•] Phase 1: Plan rsqrt implementation
+[ ] Phase 2: Generate HERsqrt code (cpp/Interface/model/Makefile/configs)
+[ ] Phase 3: Build all 3 targets + model.so
+[ ] Phase 4: Push & run on device with --use_native_input/output_files
+[ ] Phase 5: Compare cosine ≥ 0.999 / max_abs ≤ 1e-3
+[ ] Phase 7: Report + update state.json + AGENTS.md lesson
+[0m
+[0m← [0mWrite ops/rsqrt/logs/plan.md
+Wrote file successfully.
+[0m
+[0m$ [0mmkdir -p ops/rsqrt/build/src ops/rsqrt/build/model_src ops/rsqrt/build/device_configs ops/rsqrt/build/inputs ops/rsqrt/outputs/numpy_ref ops/rsqrt/outputs/device ops/rsqrt/patches
+(no output)
+[0m
+[0m← [0mWrite ops/rsqrt/build/src/HERsqrt.cpp
+Wrote file successfully.
+[0m
+[Round 10] Agent exited. Sleeping 5s...
+[Round 11] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/rsqrt/ 2>/dev/null && echo "---" && ls ops/exp/build/src/ 2>/dev/null
+build
+logs
+outputs
+patches
+spec.md
+---
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m→ [0mRead ops/rsqrt/spec.md
+[0m
+[0m$ [0mls ops/exp/build/ ops/exp/build/src/ ops/exp/build/model_src/ ops/exp/build/device_configs/ 2>/dev/null
+ops/exp/build/:
+build
+device_configs
+logs
+Makefile
+model
+model_src
+src
+
+ops/exp/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+ops/exp/build/model_src/:
+model_exp.cpp
+model_heexp.cpp
+
+ops/exp/build/src/:
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/Makefile
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/device_configs/htp_config.json
+[0m→ [0mRead ops/exp/build/device_configs/net_run_config.json
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp
+[0m
+[0m$ [0mls ops/exp/build/build/ ops/exp/build/model/ 2>/dev/null
+ops/exp/build/build/:
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+
+ops/exp/build/model/:
+aarch64-android
+libQnnExpModel.so
+libQnnHEExpModel.so
+x86_64-linux-clang
+[0m
+[0m$ [0mls ops/exp/logs/ ops/exp/outputs/ 2>/dev/null
+ops/exp/logs/:
+plan.md
+
+ops/exp/outputs/:
+device
+ref
+[0m
+[0m→ [0mRead ops/exp/patches/01.md
+[0m
+[0m# [0mTodos
+[•] Phase 1: Plan HERsqrt implementation
+[ ] Phase 2: Generate src/HERsqrt.cpp, Interface, model, Makefile, configs
+[ ] Phase 3: Build (htp + arm + x86) and model.so
+[ ] Phase 4: Generate fp16 positive inputs and run on device
+[ ] Phase 5: Compare device vs numpy ref
+[ ] Phase 7: Update state.json + write patch report
+[0m
+[0m$ [0mgrep -nE "def run_numpy_reference|elif op_name|if op_name|rsqrt|sqrt" mcp_servers/qnn_runner_server.py | head -40
+73:    """RMSNorm: y = x * w / sqrt(mean(x^2) + eps)"""
+77:    rms_inv = 1.0 / np.sqrt(mean_sq + eps)
+152:def run_numpy_reference(op_name: str, input_dir: str, output_dir: str,
+165:    if op_name not in NUMPY_OPS:
+173:        if op_name == "rmsnorm":
+191:        elif op_name == "swiglu":
+205:        elif op_name == "rope":
+222:        elif op_name == "softmax":
+234:        elif op_name == "matmul":
+[0m
+[0m$ [0mls ops/silu/build/ 2>/dev/null && grep -E "rsqrt|RSQRT|run_numpy_reference" mcp_servers/qnn_runner_server.py | head -30
+build
+cache
+device_configs
+gen_SiLU.log
+logs
+Makefile
+model
+model_src
+SiLU.xml
+src
+- run_numpy_reference: 在 host 用 numpy fp32 计算参考输出
+def run_numpy_reference(op_name: str, input_dir: str, output_dir: str,
+[0m
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [offset=140, limit=130][0m
+[0m
+[0m$ [0mls ops/exp/outputs/ref/ ops/div/outputs/ref/ 2>/dev/null && ls -la ops/exp/outputs/device/ 2>/dev/null
+ops/div/outputs/ref/:
+output.raw
+
+ops/exp/outputs/ref/:
+out_ref.raw
+total 40
+drwxrwxr-x 2 yinrun yinrun  4096  5月 29 15:40 .
+drwxrwxr-x 4 yinrun yinrun  4096  5月 29 15:17 ..
+-rw-r--r-- 1 yinrun yinrun 32768  5月 29 15:40 output_native.raw
+[0m
+[0m$ [0mls ops/exp/inputs 2>/dev/null; ls ops/exp/outputs/device/ 2>/dev/null; ls ops/exp/outputs/ref/ 2>/dev/null; find ops/exp -name "*.raw" 2>/dev/null
+in.raw
+output_native.raw
+out_ref.raw
+ops/exp/outputs/ref/out_ref.raw
+ops/exp/outputs/device/output_native.raw
+ops/exp/inputs/in.raw
+[0m
+[0m$ [0mgrep -A 10 "rsqrt\|exp" baseline/metadata.json | head -30
+(no output)
+[0m
+[0m$ [0mcat baseline/metadata.json 2>/dev/null | head -100
+{
+  "model": "Qwen3-0.6B",
+  "model_params": {
+    "hidden_dim": 896,
+    "intermediate_dim": 4864,
+    "num_heads": 14,
+    "num_kv_heads": 2,
+    "head_dim": 64,
+    "seq_len": 128,
+    "rope_theta": 1000000,
+    "eps": 1e-06
+  },
+  "seed": 42,
+  "dtype": "float16",
+  "generated_at": "2026-05-27T11:44:05.349837+00:00",
+  "ops_tested": [
+    "rmsnorm",
+    "swiglu",
+    "rope",
+    "softmax",
+    "matmul"
+  ],
+  "test_inputs": {
+    "rmsnorm": {
+      "shapes": {
+        "input_x": [
+          1,
+          128,
+          896
+        ],
+        "weight": [
+          896
+        ]
+      },
+      "dtype": "float16"
+    },
+    "swiglu": {
+      "shapes": {
+        "gate": [
+          1,
+          128,
+          4864
+        ],
+        "up": [
+          1,
+          128,
+          4864
+        ]
+      },
+      "dtype": "float16"
+    },
+    "rope": {
+      "shapes": {
+        "q": [
+          1,
+          14,
+          128,
+          64
+        ],
+        "k": [
+          1,
+          2,
+          128,
+          64
+        ],
+        "cos_cache": [
+          1,
+          1,
+          128,
+          64
+        ],
+        "sin_cache": [
+          1,
+          1,
+          128,
+          64
+        ]
+      },
+      "dtype": "float16"
+    },
+    "softmax": {
+      "shapes": {
+        "input": [
+          1,
+          14,
+          128,
+          128
+        ]
+      },
+      "dtype": "float16"
+    },
+    "matmul": {
+      "shapes": {
+        "a": [
+          128,
+          896
+        ],
+        "b": [
+          896,
+          4864
+[0m
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [limit=25, offset=115][0m
+[0m→ [0mRead ops/exp/logs/plan.md
+[0m
+[0m$ [0mmkdir -p ops/rsqrt/build/src ops/rsqrt/build/model_src ops/rsqrt/build/device_configs ops/rsqrt/inputs ops/rsqrt/outputs/ref ops/rsqrt/outputs/device ops/rsqrt/logs ops/rsqrt/patches
+(no output)
+[0m
+[Round 11] Agent exited. Sleeping 5s...
+[Round 12] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/rsqrt/ ops/exp/build/src/ ops/exp/build/model_src/ 2>&1
+ops/exp/build/model_src/:
+model_exp.cpp
+model_heexp.cpp
+
+ops/exp/build/src/:
+HEExp.cpp
+HEExpInterface.cpp
+
+ops/rsqrt/:
+build
+inputs
+logs
+outputs
+patches
+spec.md
+[0m
+[0m→ [0mRead ops/rsqrt/spec.md
+[0m
+[0m$ [0mls ops/exp/build/ ops/rsqrt/build/ 2>&1
+ops/exp/build/:
+build
+cache
+device_configs
+logs
+Makefile
+model
+model_src
+src
+
+ops/rsqrt/build/:
+device_configs
+inputs
+model_src
+src
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/Makefile
+[0m
+[0m$ [0mls ops/exp/build/device_configs/ ops/exp/inputs/ ops/exp/outputs/ 2>&1
+ops/exp/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+ops/exp/inputs/:
+in.raw
+
+ops/exp/outputs/:
+device
+ref
+[0m
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp
+[0m
+[0m$ [0mls ops/exp/build/model/ ops/exp/build/build/ ops/exp/outputs/device/ ops/exp/outputs/ref/ 2>&1
+ops/exp/build/build/:
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+
+ops/exp/build/model/:
+aarch64-android
+libQnnExpModel.so
+libQnnHEExpModel.so
+x86_64-linux-clang
+
+ops/exp/outputs/device/:
+output_native.raw
+
+ops/exp/outputs/ref/:
+out_ref.raw
+[0m
+[0m→ [0mRead ops/exp/patches/01.md
+[0m→ [0mRead ops/exp/build/device_configs/net_run_config.json
+[0m→ [0mRead ops/exp/build/device_configs/htp_config.json
+[0m
+[0m# [0mTodos
+[•] Phase 1: Plan rsqrt implementation
+[ ] Phase 2: Generate src/HERsqrt.cpp + Interface + model + Makefile
+[ ] Phase 3: Build all targets + model lib
+[ ] Phase 4: Generate positive fp16 inputs, deploy & run on HTP
+[ ] Phase 5: Compute numpy reference, compare cosine/max_abs
+[ ] Phase 7: Update state.json + write report
+[0m
+[0m$ [0mgrep -rn "rsqrt" mcp_servers/ 2>&1 | head -30
+(no output)
+[0m
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [offset=1, limit=80][0m
+[0m
+[0m$ [0mgrep -n "def \|run_numpy_reference\|op_name ==" mcp_servers/qnn_runner_server.py | head -40
+5:- run_numpy_reference: 在 host 用 numpy fp32 计算参考输出
+43:def _adb(args, timeout=120):
+52:def _shell(cmd, timeout=60):
+56:def _push(local, remote):
+61:def _pull(remote, local):
+71:def _numpy_rmsnorm(input_x: np.ndarray, weight: np.ndarray,
+82:def _numpy_swiglu(gate: np.ndarray, up: np.ndarray) -> np.ndarray:
+90:def _numpy_rope(q: np.ndarray, k: np.ndarray,
+93:    def _rotate_half(x):
+107:def _numpy_softmax(x: np.ndarray) -> np.ndarray:
+115:def _numpy_matmul(a: np.ndarray, b: np.ndarray) -> np.ndarray:
+130:def generate_test_inputs(op_name: str, shapes: dict, dtype: str = "float16",
+152:def run_numpy_reference(op_name: str, input_dir: str, output_dir: str,
+173:        if op_name == "rmsnorm":
+191:        elif op_name == "swiglu":
+205:        elif op_name == "rope":
+222:        elif op_name == "softmax":
+234:        elif op_name == "matmul":
+251:def _find_op_package_so(build_subdir: Path) -> Path | None:
+268:def _write_qnn_net_run_configs(local_dir: Path, graph_name: str) -> tuple[Path, Path]:
+299:def run_custom_op_on_device(op_name: str, build_dir: str, input_dir: str,
+428:def build_single_op_model(op_name: str, build_dir: str,
+511:def _gen_model_cpp(op_name: str, package_name: str,
+637:def ensure_device_runtime() -> dict:
+[0m
+[0m$ [0mfind ops/exp -name "*.py" -o -name "ref_*.sh" 2>&1; ls ops/exp/logs/ 2>&1
+plan.md
+[0m
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [offset=130, limit=130][0m
+[Round 12] Agent exited. Sleeping 5s...
+[Round 13] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/rsqrt/ 2>/dev/null && echo "---" && ls ops/exp/build/src/ 2>/dev/null
+build
+inputs
+logs
+outputs
+patches
+spec.md
+---
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[Round 13] Agent exited. Sleeping 5s...
+[Round 14] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mcat state.json
+{
+  "version": 1,
+  "started_at": "2026-05-27T00:00:00Z",
+  "updated_at": "2026-05-29T15:45:00Z",
+  "session_id": "orchestrator-001",
+  "config": {
+    "model": "kiro-api/claude-opus-4.7",
+    "qnn_sdk_version": "2.42",
+    "device_soc": "SM8850",
+    "acceptance": {
+      "cosine_min": 0.999,
+      "max_abs_max": 0.001,
+      "ppl_delta_max_pct": 1.0
+    },
+    "max_iterations_per_op": 50
+  },
+  "queue": [
+    "silu",
+    "swiglu",
+    "rmsnorm",
+    "softmax",
+    "rope",
+    "matmul",
+    "add",
+    "mul",
+    "sub",
+    "div",
+    "exp",
+    "rsqrt",
+    "sqrt",
+    "neg",
+    "abs",
+    "reduce_sum",
+    "reduce_max",
+    "reduce_mean",
+    "gelu",
+    "tanh",
+    "sigmoid"
+  ],
+  "ops": {
+    "silu": {
+      "status": "completed",
+      "iterations": 4,
+      "metrics": {
+        "cosine_vs_ref_fp16": 0.99999994,
+        "max_abs_err_fp16": 0.0001220703125,
+        "mean_abs_err_fp16": 1.9e-08,
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": "ops/silu/patches/04.md",
+      "duration_min": null,
+      "session_id": "builder-silu-001",
+      "started_at": "2026-05-28T00:00:00Z",
+      "completed_at": "2026-05-28T16:30:00Z"
+    },
+    "swiglu": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0009765625,
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-swiglu-001",
+      "started_at": "2026-05-28T16:35:00Z",
+      "completed_at": "2026-05-28T16:56:00Z"
+    },
+    "rmsnorm": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.001953125,
+        "mean_abs_err": 2.276e-07,
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16",
+        "note": "2/114688 elements at 1 ULP boundary"
+      },
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-rmsnorm-001",
+      "started_at": "2026-05-28T17:20:00Z",
+      "completed_at": "2026-05-28T17:25:00Z"
+    },
+    "softmax": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999531531,
+        "max_abs_err": 3.0517578125e-05,
+        "relative_error": 1.8e-07,
+        "shape": [
+          1,
+          14,
+          128,
+          128
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-softmax-001",
+      "started_at": "2026-05-28T17:00:00Z",
+      "completed_at": "2026-05-28T17:10:00Z"
+    },
+    "rope": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine_q": 1.0,
+        "max_abs_err_q": 5.96e-08,
+        "cosine_k": 1.0,
+        "max_abs_err_k": 5.96e-08,
+        "q_shape": [
+          1,
+          14,
+          128,
+          64
+        ],
+        "k_shape": [
+          1,
+          2,
+          128,
+          64
+        ],
+        "dtype": "fp16",
+        "note": "single graph with 2 HERoPE nodes sharing cos/sin; interleaved-pair layout"
+      },
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-rope-001",
+      "started_at": "2026-05-28T19:30:00Z",
+      "completed_at": "2026-05-28T19:38:00Z"
+    },
+    "matmul": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999998457395,
+        "max_abs_err": 0.0009765625,
+        "relative_error": 3.2e-06,
+        "shape_a": [128, 896],
+        "shape_b": [896, 4864],
+        "shape_c": [128, 4864],
+        "dtype": "fp16",
+        "note": "scalar fp32-accumulated dot product over K=896; output 622592 elements; first op with output_shape != input_shape"
+      },
+      "report_path": "ops/matmul/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-matmul-002",
+      "started_at": "2026-05-29T10:00:00Z",
+      "completed_at": "2026-05-29T11:25:00Z"
+    },
+    "add": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "relative_error": 0.0,
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16",
+        "note": "bit-exact match — naive element-wise add does single fp16 round, identical to numpy fp32->fp16 cast"
+      },
+      "report_path": "ops/add/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-add-001",
+      "started_at": "2026-05-29T00:00:00Z",
+      "completed_at": "2026-05-29T09:40:00Z"
+    },
+    "mul": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0000000000000002,
+        "max_abs_err": 5.96e-08,
+        "relative_error": 1.19e-06,
+        "shape": [1, 1, 128, 896],
+        "dtype": "fp16",
+        "note": "naive a*b — single fp16 round, near bit-exact match"
+      },
+      "report_path": "ops/mul/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-mul-002",
+      "started_at": "2026-05-29T10:00:00Z",
+      "completed_at": "2026-05-29T11:10:00Z"
+    },
+    "sub": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999999999,
+        "max_abs_err": 0.0,
+        "relative_error": 0.0,
+        "shape": [1, 1, 128, 896],
+        "dtype": "fp16",
+        "note": "bit-exact match — naive a-b is single fp16 round"
+      },
+      "report_path": "ops/sub/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-sub-002",
+      "started_at": "2026-05-29T10:00:00Z",
+      "completed_at": "2026-05-29T11:10:00Z"
+    },
+    "div": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0000000000000002,
+        "max_abs_err": 0.0,
+        "relative_error": 0.0,
+        "shape": [1, 1, 128, 896],
+        "dtype": "fp16",
+        "note": "bit-exact match — fp16 -> fp32 promote, fp32 div, single fp16 round; identical to numpy fp32->fp16 cast path"
+      },
+      "report_path": "ops/div/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-div-002",
+      "started_at": "2026-05-29T10:00:00Z",
+      "completed_at": "2026-05-29T14:55:00Z"
+    },
+    "exp": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "relative_error": 0.0,
+        "shape": [1, 1, 128, 128],
+        "dtype": "fp16",
+        "note": "bit-exact match — device output uint16-equal to numpy ref; input range [-4.39, 4.15] safely below fp16 exp overflow threshold ~11.09"
+      },
+      "report_path": "ops/exp/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-exp-001",
+      "started_at": "2026-05-29T15:00:00Z",
+      "completed_at": "2026-05-29T15:40:00Z"
+    },
+    "rsqrt": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "sqrt": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "neg": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "abs": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "reduce_sum": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "reduce_max": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "reduce_mean": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "gelu": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "tanh": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "sigmoid": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    }
+  },
+  "global": {
+    "completed_count": 11,
+    "permanent_fail_count": 0,
+    "consecutive_fails": 0,
+    "total_lessons": 6
+  }
+}
+[0m
+[0m$ [0mls ops/rsqrt/ 2>/dev/null && echo "---" && cat ops/rsqrt/spec.md 2>/dev/null
+build
+inputs
+logs
+outputs
+patches
+spec.md
+---
+# Rsqrt Op Spec
+
+## 数学定义
+y = 1 / sqrt(x) (element-wise)
+
+## 输入输出
+| 名称 | Shape | DType |
+|------|-------|-------|
+| input | [1, 1, 128, 1] | float16 |
+| output | [1, 1, 128, 1] | float16 |
+
+## 用途
+RMSNorm 中 rsqrt(mean(x²) + eps)
+
+## 数值陷阱
+- x=0 → inf
+- 负数输入 → NaN
+- Quake fast rsqrt + Newton iteration 可提高精度
+
+## 验收标准
+- cosine ≥ 0.999, max_abs ≤ 1e-3
+[0m
+[0m$ [0mls ops/exp/build/src/ ops/exp/build/model_src/ 2>/dev/null
+ops/exp/build/model_src/:
+model_exp.cpp
+model_heexp.cpp
+
+ops/exp/build/src/:
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp
+[0m
+[0m$ [0mls ops/exp/build/ && echo "---" && cat ops/exp/build/Makefile 2>/dev/null | head -80
+build
+cache
+device_configs
+logs
+Makefile
+model
+model_src
+src
+---
+QNN_SDK_ROOT     := /home/yinrun/software/qualcomm/qairt/2.42.0.251225
+QNN_INCLUDE      := $(QNN_SDK_ROOT)/include/QNN
+QNN_TARGET_LIB   := $(QNN_SDK_ROOT)/lib/aarch64-android
+
+HEXAGON_SDK      := /home/yinrun/software/qualcomm/Hexagon_SDK/6.4.0.2
+HEXAGON_TOOLS    := $(HEXAGON_SDK)/tools/HEXAGON_Tools/19.0.04/Tools
+ANDROID_NDK      := /home/yinrun/software/android-ndk-r29
+
+PACKAGE_NAME := HEExpPackage
+LIBRARY_NAME := libQnnHtpExp.so
+WORK         := build
+SRC_DIR      := src
+
+OP_SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
+OP_OBJS    := $(notdir $(patsubst %.cpp,%.o,$(OP_SOURCES)))
+
+COMMON_CXX_FLAGS := \
+    -std=c++17 \
+    -I$(QNN_INCLUDE) \
+    -fPIC -Wall -Wreorder \
+    -Wno-missing-braces -Wno-unused-function \
+    -Wno-format -Wno-unused-command-line-argument \
+    -fvisibility=default -stdlib=libc++ \
+    -DQNN_API="__attribute__((visibility(\"default\")))" \
+    -D__QAIC_HEADER_EXPORT="__attribute__((visibility(\"default\")))" \
+    -DTHIS_PKG_NAME=$(PACKAGE_NAME)
+
+# ---- Hexagon v81 (SM8850 HTP) ----
+HEXAGON_CXX := $(HEXAGON_TOOLS)/bin/hexagon-clang++
+HEXAGON_FLAGS := $(COMMON_CXX_FLAGS) \
+    -mv81 -mhvx -mhvx-length=128B -mhmx \
+    -DUSE_OS_QURT -O2 -Wno-reorder -DPREPARE_DISABLED \
+    -I$(HEXAGON_SDK)/rtos/qurt/computev81/include/qurt \
+    -I$(HEXAGON_SDK)/rtos/qurt/computev81/include/posix \
+    -I$(HEXAGON_SDK)/incs \
+    -I$(HEXAGON_SDK)/incs/stddef
+
+htp_v81: $(WORK)/hexagon-v81/$(LIBRARY_NAME)
+
+$(WORK)/hexagon-v81:
+	@mkdir -p $@
+
+$(WORK)/hexagon-v81/%.o: $(SRC_DIR)/%.cpp | $(WORK)/hexagon-v81
+	$(HEXAGON_CXX) $(HEXAGON_FLAGS) -MMD -c $< -o $@
+
+$(WORK)/hexagon-v81/$(LIBRARY_NAME): $(patsubst %,$(WORK)/hexagon-v81/%,$(OP_OBJS))
+	$(HEXAGON_CXX) -fPIC -std=c++17 -shared -o $@ $^
+
+# ---- aarch64-android ----
+AARCH64_CXX := $(ANDROID_NDK)/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ \
+    --target=aarch64-none-linux-android21 \
+    --sysroot=$(ANDROID_NDK)/toolchains/llvm/prebuilt/linux-x86_64/sysroot \
+    -stdlib=libc++ -static-libstdc++
+
+AARCH64_FLAGS := $(COMMON_CXX_FLAGS) \
+    -D__HVXDBL__ \
+    -I$(HEXAGON_TOOLS)/libnative/include \
+    -ffast-math -DUSE_OS_LINUX -DANDROID \
+    -fomit-frame-pointer \
+    -Wno-invalid-offsetof -Wno-unused-variable -Wno-unused-parameter \
+    -Wno-sign-compare -Wno-ignored-qualifiers -Wno-missing-field-initializers
+
+AARCH64_LDFLAGS := -L$(QNN_TARGET_LIB) -lQnnHtp -lQnnHtpPrepare
+
+htp_aarch64: $(WORK)/aarch64-android/$(LIBRARY_NAME)
+
+$(WORK)/aarch64-android:
+	@mkdir -p $@
+
+$(WORK)/aarch64-android/%.o: $(SRC_DIR)/%.cpp | $(WORK)/aarch64-android
+	$(AARCH64_CXX) $(AARCH64_FLAGS) -MMD -c $< -o $@
+
+$(WORK)/aarch64-android/$(LIBRARY_NAME): $(patsubst %,$(WORK)/aarch64-android/%,$(OP_OBJS))
+	$(AARCH64_CXX) -fPIC -std=c++17 -shared -o $@ $^ $(AARCH64_LDFLAGS)
+
+# ---- Convenience targets ----
+all: htp_v81 htp_aarch64 htp_x86
+
+htp_x86: $(WORK)/x86_64-linux-clang/$(LIBRARY_NAME)
+[0m
+[0m→ [0mRead ops/exp/build/Makefile[90m [offset=80][0m
+[0m
+[0m$ [0mls ops/exp/patches/ ops/exp/logs/ 2>/dev/null && echo "---" && cat ops/exp/patches/01.md 2>/dev/null | head -60
+ops/exp/logs/:
+plan.md
+
+ops/exp/patches/:
+01.md
+---
+# Patch 01 — HEExp recovery & close-out
+
+## Hypothesis
+上次 session 已经把 HEExp 走完 build → push → run → pull 全流程，但是
+进程崩溃前没更新 `state.json`（exp 字段还是 `in_progress / iterations=0`）。
+按照 L6 经验，先复活后检查产物，不直接重跑。
+
+## Verification
+1. 检查 `ops/exp/outputs/device/output_native.raw`（32768 bytes，5月29 15:40）和
+   `ops/exp/outputs/ref/out_ref.raw`（5月29 15:34）都存在、时间戳同一 session。
+2. `tensor-compare_compare_pass`（cosine_min=0.999, max_abs_max=1e-3, fp16）。
+
+## Result
+- cosine_similarity = 1.0
+- max_abs_error = 0.0
+- relative_error = 0.0
+- shape = [1,1,128,128]，16384 fp16 元素
+- bit-exact：device 与 ref 的 uint16 view `array_equal` 为 True
+- input 范围 [-4.39, 4.15]，远低于 fp16 exp 溢出阈值 11.09，没踩 overflow 陷阱
+- ref 范围 [0.0124, 63.59]，全程有限正数
+
+## Implementation note
+Kernel 跟 silu/div 同构：
+```cpp
+out(n,h,w,d) = expf(in(n,h,w,d));   // fp16 → fp32 promote、expf、单次 fp16 round
+```
+注册 3 个 variant + `Flat("*"), MainMemory("*")`。
+
+## Decision
+Mark `exp` 为 `completed`，1 iteration（recovery，无新 patch 需要）。
+
+## Lesson
+L6 已经 cover 这个场景。本 op 没有新 lesson 要追加。
+[0m
+[0m# [0mTodos
+[•] Phase 1: Plan HERsqrt
+[ ] Phase 2: Generate src/model_src/Makefile
+[ ] Phase 3: Build all targets + model.so
+[ ] Phase 4: Generate inputs (positive!), push, run on device
+[ ] Phase 5: Compare vs numpy ref
+[ ] Phase 7: Update state.json + AGENTS.md
+[0m
+[0m← [0mWrite ops/rsqrt/logs/plan.md
+Wrote file successfully.
+[0m
+[0m$ [0mmkdir -p ops/rsqrt/build/src ops/rsqrt/build/model_src ops/rsqrt/inputs ops/rsqrt/outputs/ref ops/rsqrt/outputs/device
+(no output)
+[0m
+[0m← [0mWrite ops/rsqrt/build/src/HERsqrt.cpp
+Wrote file successfully.
+[0m
+[Round 14] Agent exited. Sleeping 5s...
+[Round 15] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls ops/rsqrt/ 2>/dev/null && echo "---" && ls ops/exp/build/src/ 2>/dev/null
+build
+inputs
+logs
+outputs
+patches
+spec.md
+---
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m→ [0mRead ops/rsqrt/spec.md
+[0m
+[0m$ [0mls ops/exp/build/ && echo "---model_src---" && ls ops/exp/build/model_src/ && echo "---makefile---" && ls ops/exp/build/*.mk 2>/dev/null; ls ops/exp/build/Makefile 2>/dev/null
+build
+cache
+device_configs
+logs
+Makefile
+model
+model_src
+src
+---model_src---
+model_exp.cpp
+model_heexp.cpp
+---makefile---
+ops/exp/build/Makefile
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/Makefile
+[0m
+[0m$ [0mls ops/exp/inputs/ ops/exp/outputs/ 2>/dev/null
+ops/exp/inputs/:
+in.raw
+
+ops/exp/outputs/:
+device
+ref
+[0m
+[0m→ [0mRead ops/exp/build/model_src/model_exp.cpp
+[0m
+[0m$ [0mls ops/exp/build/device_configs/ ops/exp/outputs/device/ 2>/dev/null
+ops/exp/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+ops/exp/outputs/device/:
+output_native.raw
+[0m
+[0m$ [0mls ops/rsqrt/build/ 2>/dev/null; echo "---"; ls ops/rsqrt/inputs/ 2>/dev/null; echo "---"; ls ops/rsqrt/outputs/ 2>/dev/null
+device_configs
+inputs
+model_src
+src
+---
+---
+device
+numpy_ref
+ref
+[0m
+[0m→ [0mRead ops/exp/patches/01.md
+[0m
+[0m# [0mTodos
+[•] Phase 1 — Plan rsqrt (positive-only input, 1/sqrt math)
+[ ] Phase 2 — Code-gen src/HERsqrt.cpp + Interface + model_rsqrt.cpp + Makefile
+[ ] Phase 3 — Build HTP + aarch64 + x86 + model.so
+[ ] Phase 4 — Generate positive fp16 inputs, push, run on device
+[ ] Phase 5 — Compare vs numpy ref (cosine≥0.999, max_abs≤1e-3)
+[ ] Phase 7 — Update state.json + write report
+[0m
+[0m← [0mWrite ops/rsqrt/logs/plan.md
+Wrote file successfully.
+[0m
+[0m$ [0mmkdir -p ops/rsqrt/build/src ops/rsqrt/build/model_src ops/rsqrt/build/device_configs
+(no output)
+[0m
+[Round 15] Agent exited. Sleeping 5s...
+[Round 16] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/
+AGENTS.md
+baseline
+mcp_servers
+opencode.json
+ops
+run_loop.log
+run_loop.sh
+run.sh
+state.json
+tests
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/ 2>/dev/null && echo "---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/ 2>/dev/null
+build
+inputs
+logs
+outputs
+patches
+spec.md
+---
+build
+inputs
+logs
+outputs
+patches
+spec.md
+[0m
+[0m→ [0mRead ops/rsqrt/spec.md
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/
+build
+cache
+device_configs
+logs
+Makefile
+model
+model_src
+model_via_gen
+src
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model_src/
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model_src/:
+model_exp.cpp
+model_heexp.cpp
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/src/:
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp
+[0m→ [0mRead ops/exp/build/Makefile
+[0m
+[0m# [0mTodos
+[•] Phase 1 — Plan rsqrt implementation
+[ ] Phase 2 — Code-gen src/HERsqrt.cpp + Interface + model + Makefile
+[ ] Phase 3 — Build hexagon-v81 + aarch64 + x86 + model.so
+[ ] Phase 4 — Generate fp16 inputs, push, run on device
+[ ] Phase 5 — Compare device output vs numpy ref
+[ ] Phase 7 — Update state.json, write report, append lesson
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/inputs/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/device_configs/
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/inputs/:
+in.raw
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/:
+device
+ref
+[0m
+[0m→ [0mRead ops/exp/build/device_configs/htp_config.json
+[0m→ [0mRead ops/exp/build/device_configs/net_run_config.json
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/patches/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/logs/
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/logs/:
+plan.md
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/patches/:
+01.md
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/build/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model/ 2>/dev/null
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/build/:
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model/:
+aarch64-android
+libQnnExpModel.so
+libQnnHEExpModel.so
+x86_64-linux-clang
+[0m
+[0m← [0mWrite ops/rsqrt/logs/plan.md
+Wrote file successfully.
+[0m
+[0m$ [0mmkdir -p /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/src /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/device_configs
+(no output)
+[0m
+[0m← [0mWrite ops/rsqrt/build/src/HERsqrt.cpp
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/rsqrt/build/src/HERsqrtInterface.cpp
+Wrote file successfully.
+[0m
+[Round 16] Agent exited. Sleeping 5s...
+[Round 17] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mfind /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent -name "state.json" -maxdepth 3 2>/dev/null
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+[0m
+[0m→ [0mRead state.json
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/ 2>/dev/null && echo "---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/ 2>/dev/null
+build
+inputs
+logs
+outputs
+patches
+spec.md
+---
+build
+inputs
+logs
+outputs
+patches
+spec.md
+[0m
+[0m→ [0mRead ops/rsqrt/spec.md
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/
+build
+cache
+device_configs
+logs
+Makefile
+model
+model_src
+model_via_gen
+src
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model_src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/device_configs/
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/device_configs/:
+htp_config.json
+net_run_config.json
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/model_src/:
+model_exp.cpp
+model_heexp.cpp
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/src/:
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m
+[0m# [0mTodos
+[•] Phase 1: Plan rsqrt implementation
+[ ] Phase 2: Code-gen src + model + Makefile
+[ ] Phase 3: Build all targets
+[ ] Phase 4: Deploy & run on device
+[ ] Phase 5: Compare numerical outputs
+[ ] Phase 7: Update state.json + AGENTS.md lesson
+[0m
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp
+[0m→ [0mRead ops/exp/build/Makefile
+[0m→ [0mRead ops/exp/build/device_configs/htp_config.json
+[0m→ [0mRead ops/exp/build/device_configs/net_run_config.json
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/inputs/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/patches/
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/inputs/:
+in.raw
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/outputs/:
+device
+ref
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/patches/:
+01.md
+[0m
+[0m→ [0mRead ops/exp/patches/01.md
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [offset=1, limit=120][0m
+[0m
+[0m$ [0mgrep -n "rsqrt\|_numpy_rsqrt\|NUMPY_OPS\|numpy_exp\|_numpy_exp" /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/mcp_servers/qnn_runner_server.py
+120:NUMPY_OPS = {
+165:    if op_name not in NUMPY_OPS:
+167:                "error": f"Unknown op: {op_name}. Supported: {list(NUMPY_OPS.keys())}"}
+[0m
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [offset=120, limit=200][0m
+[0m→ [0mRead mcp_servers/qnn_runner_server.py[90m [limit=200, offset=320][0m
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/build/ 2>/dev/null && echo "---" && ls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/ 2>/dev/null
+aarch64-android
+hexagon-v81
+x86_64-linux-clang
+---
+device_configs
+inputs
+model_src
+src
+[0m
+[0m$ [0mls /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/device_configs/ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/inputs/ 2>/dev/null
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/device_configs/:
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/:
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/src/:
+HERsqrt.cpp
+HERsqrtInterface.cpp
+
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/inputs/:
+[0m
+[0m→ [0mRead ops/rsqrt/build/src/HERsqrt.cpp
+[0m→ [0mRead ops/rsqrt/build/src/HERsqrtInterface.cpp
+[0m
+[0m← [0mWrite ops/rsqrt/logs/plan.md
+Wrote file successfully.
+[0m
+[0m← [0mEdit state.json
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/state.json
+@@ -260,15 +260,15 @@
+   "started_at": "2026-05-29T15:00:00Z",
+   "completed_at": "2026-05-29T15:40:00Z"
+ },
+ "rsqrt": {
+-  "status": "pending",
++  "status": "in_progress",
+   "iterations": 0,
+   "metrics": null,
+   "report_path": null,
+   "duration_min": null,
+-  "session_id": null,
+-  "started_at": null,
++  "session_id": "builder-rsqrt-001",
++  "started_at": "2026-05-29T16:00:00Z",
+   "completed_at": null
+ },
+ "sqrt": {
+   "status": "pending",
+
+[0m
+[0m← [0mWrite ops/rsqrt/build/model_src/model_hersqrt.cpp
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/rsqrt/build/Makefile
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/rsqrt/build/device_configs/htp_config.json
+Wrote file successfully.
+[0m
+[0m← [0mWrite ops/rsqrt/build/device_configs/net_run_config.json
+Wrote file successfully.
+[0m
+[0m# [0mTodos
+[✓] Phase 1: Plan rsqrt implementation
+[✓] Phase 2: Code-gen src + model + Makefile
+[•] Phase 3: Build all targets
+[ ] Phase 4: Deploy & run on device
+[ ] Phase 5: Compare numerical outputs
+[ ] Phase 7: Update state.json + AGENTS.md lesson
+[0m
+[0m⚙ [0mqnn-build_ndk_build {"package_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build","target":"aarch64-android"}
+[0m⚙ [0mqnn-build_ndk_build {"package_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build","target":"hexagon-v81"}
+[0m⚙ [0mqnn-runner_build_single_op_model {"op_name":"HERsqrt","build_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build","input_shapes":{"in":[1,1,128,1]},"output_shapes":{"output":[1,1,128,1]},"op_package_name":"HERsqrtPackage"}
+[0m⚙ [0mqnn-build_ndk_build {"package_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build","target":"x86_64-linux-clang"}
+[0m
+[0m$ [0mpython3 -c "
+import numpy as np
+import os
+np.random.seed(42)
+# rsqrt needs x > 0; use abs(normal) + 0.1 to keep away from zero
+x = np.abs(np.random.standard_normal((1, 1, 128, 1))).astype(np.float16) + np.float16(0.1)
+print('shape:', x.shape, 'dtype:', x.dtype)
+print('min:', float(x.min()), 'max:', float(x.max()), 'mean:', float(x.mean()))
+out_dir = '/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/inputs'
+os.makedirs(out_dir, exist_ok=True)
+x.tofile(os.path.join(out_dir, 'in.raw'))
+print('Saved:', os.path.join(out_dir, 'in.raw'), os.path.getsize(os.path.join(out_dir, 'in.raw')), 'bytes')
+
+# Numpy reference: fp16 -> fp32 promote, fp32 rsqrt, single fp16 round
+xf = x.astype(np.float32)
+y = (1.0 / np.sqrt(xf)).astype(np.float16)
+print('y range:', float(y.min()), float(y.max()))
+ref_dir = '/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/outputs/ref'
+os.makedirs(ref_dir, exist_ok=True)
+y.tofile(os.path.join(ref_dir, 'out_ref.raw'))
+print('Saved:', os.path.join(ref_dir, 'out_ref.raw'), os.path.getsize(os.path.join(ref_dir, 'out_ref.raw')), 'bytes')
+"
+
+shape: (1, 1, 128, 1) dtype: float16
+min: 0.1051025390625 max: 2.71875 mean: 0.8427734375
+Saved: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/inputs/in.raw 256 bytes
+y range: 0.6064453125 3.083984375
+Saved: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/outputs/ref/out_ref.raw 256 bytes
+[0m
+[0m⚙ [0mqnn-adb_adb_shell {"command":"pkill -9 -f qnn_llama_runner; sleep 2; echo done"}
+[0m⚙ [0mqnn-runner_ensure_device_runtime Unknown
+[0m⚙ [0mqnn-runner_run_custom_op_on_device {"build_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build","input_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/inputs","interface_provider":"HERsqrtPackageInterfaceProvider","op_name":"HERsqrt","output_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/outputs/device"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && export LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && export ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && /data/local/tmp/qnn-net-run --backend /data/local/tmp/libQnnHtp.so --model /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so --input_list /data/local/tmp/qnn_op_test/input_list.txt --output_dir /data/local/tmp/qnn_op_test/output --op_packages /data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:HTP --config_file /data/local/tmp/qnn_op_test/net_run_config.json --use_native_input_files --use_native_output_files 2>&1 | tail -40","timeout":120}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cat /data/local/tmp/qnn_op_test/htp_config.json && echo \"---\" && cat /data/local/tmp/qnn_op_test/net_run_config.json && echo \"---\" && ls -la /data/local/tmp/qnn_op_test/"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && export LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && export ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && /data/local/tmp/qnn-net-run --backend /data/local/tmp/libQnnHtp.so --model /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so --input_list /data/local/tmp/qnn_op_test/input_list.txt --output_dir /data/local/tmp/qnn_op_test/output --op_packages /data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:HTP --config_file /data/local/tmp/qnn_op_test/net_run_config.json --use_native_input_files --use_native_output_files --log_level verbose 2>&1 | tail -100","timeout":120}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && export LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && export ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && /data/local/tmp/qnn-net-run --backend /data/local/tmp/libQnnHtp.so --model /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so --input_list /data/local/tmp/qnn_op_test/input_list.txt --output_dir /data/local/tmp/qnn_op_test/output --op_packages /data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:HTP --config_file /data/local/tmp/qnn_op_test/net_run_config.json --use_native_input_files --use_native_output_files --log_level verbose --debug > /data/local/tmp/qnn_op_test/run.log 2>&1; tail -120 /data/local/tmp/qnn_op_test/run.log","timeout":120}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"wc -l /data/local/tmp/qnn_op_test/run.log; tail -150 /data/local/tmp/qnn_op_test/run.log","timeout":30}
+The shape [1,1,128,1] (only 128 fp16 elements = 256 bytes) is degenerately small for HTP — innermost dim of 1 fails alignment requirements (HVX vector = 128 bytes = 64 fp16). Let me bump to [1,1,128,128] like exp.
+[0m
+[0m← [0mEdit ops/rsqrt/build/model_src/model_hersqrt.cpp
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/model_hersqrt.cpp
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/model_hersqrt.cpp
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/model_hersqrt.cpp
+@@ -26,9 +26,9 @@
+ VALIDATE(model.initialize(backendHandle, interface, contextHandle,
+     "HERsqrt_graph", debug, DO_GRAPH_NODE_VALIDATIONS,
+     graphConfigs), err);
+ 
+-uint32_t dims_in[] = {1, 1, 128, 1};
++uint32_t dims_in[] = {1, 1, 128, 128};
+ VALIDATE(model.addTensor("in",
+   (Qnn_Tensor_t){.version = QNN_TENSOR_VERSION_1,
+     .v1 = {.id = 0, .name = "in",
+       .type = QNN_TENSOR_TYPE_APP_WRITE,
+
+[0m
+[0m← [0mEdit ops/rsqrt/build/model_src/model_hersqrt.cpp
+Index: /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/model_hersqrt.cpp
+===================================================================
+--- /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/model_hersqrt.cpp
++++ /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model_src/model_hersqrt.cpp
+@@ -40,9 +40,9 @@
+       .rank = 4, .dimensions = dims_in,
+       .memType = QNN_TENSORMEMTYPE_RAW,
+       .clientBuf = {.data = nullptr, .dataSize = 0}}}), err);
+ 
+-uint32_t dims_output[] = {1, 1, 128, 1};
++uint32_t dims_output[] = {1, 1, 128, 128};
+ 
+ const char* inputNames[] = {
+   "in",
+ };
+
+[0m
+[0m$ [0mpython3 -c "
+import numpy as np
+import os
+np.random.seed(42)
+shape = (1, 1, 128, 128)
+x = np.abs(np.random.standard_normal(shape)).astype(np.float16) + np.float16(0.1)
+print('shape:', x.shape, 'min:', float(x.min()), 'max:', float(x.max()))
+out_dir = '/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/inputs'
+x.tofile(os.path.join(out_dir, 'in.raw'))
+print('Saved in.raw:', os.path.getsize(os.path.join(out_dir, 'in.raw')), 'bytes')
+
+xf = x.astype(np.float32)
+y = (1.0 / np.sqrt(xf)).astype(np.float16)
+print('y range:', float(y.min()), float(y.max()))
+ref_dir = '/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/outputs/ref'
+y.tofile(os.path.join(ref_dir, 'out_ref.raw'))
+print('Saved out_ref.raw:', os.path.getsize(os.path.join(ref_dir, 'out_ref.raw')), 'bytes')
+"
+shape: (1, 1, 128, 128) min: 0.10009765625 max: 4.58203125
+Saved in.raw: 32768 bytes
+y range: 0.46728515625 3.16015625
+Saved out_ref.raw: 32768 bytes
+[0m
+[0m⚙ [0mqnn-runner_build_single_op_model {"build_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build","input_shapes":{"in":[1,1,128,128]},"op_name":"HERsqrt","op_package_name":"HERsqrtPackage","output_shapes":{"output":[1,1,128,128]}}
+[0m⚙ [0mqnn-runner_run_custom_op_on_device {"build_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build","input_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/inputs","interface_provider":"HERsqrtPackageInterfaceProvider","op_name":"HERsqrt","output_dir":"/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/outputs/device"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"adb_push_check=$(ls /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so) ; echo $adb_push_check"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && export LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && export ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && /data/local/tmp/qnn-net-run --backend /data/local/tmp/libQnnHtp.so --model /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so --input_list /data/local/tmp/qnn_op_test/input_list.txt --output_dir /data/local/tmp/qnn_op_test/output --op_packages /data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:HTP --config_file /data/local/tmp/qnn_op_test/net_run_config.json --use_native_input_files --use_native_output_files --log_level verbose 2>&1 | tail -60","timeout":120}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && export LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && export ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && /data/local/tmp/qnn-net-run --backend /data/local/tmp/libQnnHtp.so --model /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so --input_list /data/local/tmp/qnn_op_test/input_list.txt --output_dir /data/local/tmp/qnn_op_test/output --op_packages /data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:HTP --config_file /data/local/tmp/qnn_op_test/net_run_config.json --use_native_input_files --use_native_output_files --log_level verbose >/data/local/tmp/qnn_op_test/run.log 2>&1; ls -la /data/local/tmp/qnn_op_test/run.log","timeout":120}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"strings /data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so 2>/dev/null | grep -E \"HERsqrt|RsqrtPackage|InterfaceProvider\" | head -20; echo \"---hex---\"; ls -la /data/local/tmp/qnn_op_test/htp/"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cat /data/local/tmp/qnn_op_test/run.log"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"strings /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so | grep -E \"HERsqrt|graph\" | head -10"}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"logcat -d -t 100 2>/dev/null | grep -iE \"qnn|rsqrt|hexagon|dsp|fastrpc\" | tail -40","timeout":30}
+[0m⚙ [0mqnn-adb_adb_shell {"command":"cd /data/local/tmp/qnn_op_test && export LD_LIBRARY_PATH=/data/local/tmp:/data/local/tmp/qnn_op_test:$LD_LIBRARY_PATH && export ADSP_LIBRARY_PATH=\"/data/local/tmp/qnn_op_test/htp;/data/local/tmp;/vendor/lib/rfsa/adsp;/dsp\" && /data/local/tmp/qnn-net-run --backend /data/local/tmp/libQnnHtp.so --model /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so --input_list /data/local/tmp/qnn_op_test/input_list.txt --output_dir /data/local/tmp/qnn_op_test/output --op_packages /data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:CPU,/data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so:HERsqrtPackageInterfaceProvider:HTP --config_file /data/local/tmp/qnn_op_test/net_run_config.json --use_native_input_files --use_native_output_files --log_level verbose --debug --output_data_type native 2>&1 | head -150","timeout":120}
+[0m
+[0m$ [0m/home/yinrun/software/qualcomm/Hexagon_SDK/6.4.0.2/tools/HEXAGON_Tools/19.0.04/Tools/bin/hexagon-llvm-objdump -t /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/build/hexagon-v81/libQnnHtpRsqrt.so 2>/dev/null | grep -E "UND|sqrt|expf" | head -30
+echo "---exp---"
+/home/yinrun/software/qualcomm/Hexagon_SDK/6.4.0.2/tools/HEXAGON_Tools/19.0.04/Tools/bin/hexagon-llvm-objdump -t /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/exp/build/build/hexagon-v81/libQnnHtpExp.so 2>/dev/null | grep -E "UND|sqrt|expf" | head -30
+/home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/build/hexagon-v81/libQnnHtpRsqrt.so:	file format elf32-hexagon
+00000000 l    df *ABS*	00000000 HERsqrt.cpp
+00000000 l    df *ABS*	00000000 HERsqrtInterface.cpp
+00007084 l     O .rodata	00000018 _ZN12_GLOBAL__N_132PKG_HERsqrt_inner_op_name_strtabE
+0000709c l     O .rodata	00000056 _ZN12_GLOBAL__N_133PKG_HERsqrt_inner_type_tag_strtabE
+000080a8 l     O .data.rel.ro	00000020 _ZZ21PKG_HERsqrt_ops_tableE5table
+000080c8 l     O .data.rel.ro	00000010 _ZZ22PKG_HERsqrt_opts_tableE5table
+000080d8 l     O .data.rel.ro	00000048 _ZN12_GLOBAL__N_134PKG_HERsqrt_inner_ops_regist_tableE
+00000000         *UND*	00000000 _ZN4hnnx15TypicalOpIoBaseILj1ELj1EEC2ERNS_6DeserzE
+00000000         *UND*	00000000 _ZNK4hnnx15TypicalOpIoBaseILj1ELj1EE16enumerate_blocksERNS_18MemBlockEnumeratorEb
+00000000         *UND*	00000000 _ZN4hnnx13TypicalOpUtilD2Ev
+00000000         *UND*	00000000 ldexpf
+00000000         *UND*	00000000 ceilf
+00000000         *UND*	00000000 strlen
+00000000         *UND*	00000000 _ZNK4hnnx10Executable30check_constraint_for_recompileER5Graph
+00000000         *UND*	00000000 memmove
+00000000         *UND*	00000000 sqrtf
+00000000         *UND*	00000000 _ZNK4hnnx10Executable7compileER5Graph
+00000000         *UND*	00000000 _ZN4hnnx18get_pkg_op_tmp_mapEv
+00000000         *UND*	00000000 _Zng7Float16
+00000000         *UND*	00000000 _ZN4hnnx15TypicalOpIoBaseILj1ELj1EE8allocateER5Graph
+00000000         *UND*	00000000 _ZN4hnnx15TypicalOpIoBaseILj1ELj1EE11swap_outputEjRNS_8uptr_DWDI6TensorEE
+00000000         *UND*	00000000 _ZTIN4hnnx15TypicalOpIoBaseILj1ELj1EEE
+00000000         *UND*	00000000 memset
+00000000         *UND*	00000000 _Z21getPkgParamAxesTmpMapv
+00000000         *UND*	00000000 _ZNK4hnnx15TypicalOpIoBaseILj1ELj1EE8is_validEv
+00000000         *UND*	00000000 __cxa_atexit
+00000000         *UND*	00000000 __register_frame_info_bases
+00000000         *UND*	00000000 _ZN4hnnx20PackageOpStorageBaseC1ENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_bNS_12op_reg_parmsE
+00000000         *UND*	00000000 _ZN4hnnx15TypicalOpIoBaseILj1ELj1EE9set_inputEjPK6Tensor
+---exp---
+00000000         *UND*	00000000 _ZN4hnnx15TypicalOpIoBaseILj1ELj1EEC2ERNS_6DeserzE
+00000000         *UND*	00000000 _ZNK4hnnx15TypicalOpIoBaseILj1ELj1EE16enumerate_blocksERNS_18MemBlockEnumeratorEb
+00000000         *UND*	00000000 _ZN4hnnx13TypicalOpUtilD2Ev
+00000000         *UND*	00000000 ldexpf
+00000000         *UND*	00000000 ceilf
+00000000         *UND*	00000000 strlen
+00000000         *UND*	00000000 _ZNK4hnnx10Executable30check_constraint_for_recompileER5Graph
+00000000         *UND*	00000000 memmove
+00000000         *UND*	00000000 _ZNK4hnnx10Executable7compileER5Graph
+00000000         *UND*	00000000 expf
+00000000         *UND*	00000000 _ZN4hnnx18get_pkg_op_tmp_mapEv
+00000000         *UND*	00000000 _Zng7Float16
+00000000         *UND*	00000000 _ZN4hnnx15TypicalOpIoBaseILj1ELj1EE8allocateER5Graph
+00000000         *UND*	00000000 _ZN4hnnx15TypicalOpIoBaseILj1ELj1EE11swap_outputEjRNS_8uptr_DWDI6TensorEE
+00000000         *UND*	00000000 _ZTIN4hnnx15TypicalOpIoBaseILj1ELj1EEE
+00000000         *UND*	00000000 memset
+00000000         *UND*	00000000 _Z21getPkgParamAxesTmpMapv
+00000000         *UND*	00000000 _ZNK4hnnx15TypicalOpIoBaseILj1ELj1EE8is_validEv
+00000000         *UND*	00000000 __cxa_atexit
+00000000         *UND*	00000000 __register_frame_info_bases
+00000000         *UND*	00000000 _ZN4hnnx20PackageOpStorageBaseC1ENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_bNS_12op_reg_parmsE
+00000000         *UND*	00000000 _ZN4hnnx15TypicalOpIoBaseILj1ELj1EE9set_inputEjPK6Tensor
+00000000         *UND*	00000000 _Get_eh_data
+00000000         *UND*	00000000 _ZNK4hnnx15TypicalOpIoBaseILj1ELj1EE18num_inputs_outputsEv
+00000000         *UND*	00000000 _ZTVN4hnnx15TypicalOpIoBaseILj1ELj1EEE
+00000000         *UND*	00000000 _ZNK4hnnx15TypicalOpIoBaseILj1ELj1EE9serializeERNS_15SerOpsInterfaceE
+00000000         *UND*	00000000 _Assert
+00000000         *UND*	00000000 _ZNK4hnnx15TypicalOpIoBaseILj1ELj1EE16get_input_outputEjb
+00000000         *UND*	00000000 memcpy
+00000000         *UND*	00000000 _Parse_fde_instr
+[0m
+[0m$ [0mmd5sum /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/build/hexagon-v81/libQnnHtpRsqrt.so
+79aa1603f917ee7902dacd9f8c9982e7  /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/build/hexagon-v81/libQnnHtpRsqrt.so
+[0m
+[0m⚙ [0mqnn-adb_adb_shell {"command":"md5sum /data/local/tmp/qnn_op_test/htp/libQnnHtpRsqrt.so /data/local/tmp/qnn_op_test/libQnnHtpRsqrt.so /data/local/tmp/qnn_op_test/libQnnHERsqrtModel.so"}
+[0m
+[0m$ [0mmd5sum /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/build/aarch64-android/libQnnHtpRsqrt.so /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model/libQnnHERsqrtModel.so
+550f444e7f7dc8ae4bde720f1f94a73e  /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/build/aarch64-android/libQnnHtpRsqrt.so
+bf2b526fdcc05bf76c82b949cf246f10  /home/yinrun/workspace/opencode/custom_agent/qnn-op-agent/ops/rsqrt/build/model/libQnnHERsqrtModel.so
+[0m
+[Round 17] Agent exited. Sleeping 5s...
+[Round 18] 10 ops remaining. Starting agent...
+Performing one time database migration, may take a few minutes...
+sqlite-migration:0
+sqlite-migration:100
+sqlite-migration:done
+Database migration complete.
+[0m
+> op-builder · claude-opus-4.7
+[0m
+[0m$ [0mcat state.json
+{
+  "version": 1,
+  "started_at": "2026-05-27T00:00:00Z",
+  "updated_at": "2026-05-29T15:45:00Z",
+  "session_id": "orchestrator-001",
+  "config": {
+    "model": "kiro-api/claude-opus-4.7",
+    "qnn_sdk_version": "2.42",
+    "device_soc": "SM8850",
+    "acceptance": {
+      "cosine_min": 0.999,
+      "max_abs_max": 0.001,
+      "ppl_delta_max_pct": 1.0
+    },
+    "max_iterations_per_op": 50
+  },
+  "queue": [
+    "silu",
+    "swiglu",
+    "rmsnorm",
+    "softmax",
+    "rope",
+    "matmul",
+    "add",
+    "mul",
+    "sub",
+    "div",
+    "exp",
+    "rsqrt",
+    "sqrt",
+    "neg",
+    "abs",
+    "reduce_sum",
+    "reduce_max",
+    "reduce_mean",
+    "gelu",
+    "tanh",
+    "sigmoid"
+  ],
+  "ops": {
+    "silu": {
+      "status": "completed",
+      "iterations": 4,
+      "metrics": {
+        "cosine_vs_ref_fp16": 0.99999994,
+        "max_abs_err_fp16": 0.0001220703125,
+        "mean_abs_err_fp16": 1.9e-08,
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": "ops/silu/patches/04.md",
+      "duration_min": null,
+      "session_id": "builder-silu-001",
+      "started_at": "2026-05-28T00:00:00Z",
+      "completed_at": "2026-05-28T16:30:00Z"
+    },
+    "swiglu": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0009765625,
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-swiglu-001",
+      "started_at": "2026-05-28T16:35:00Z",
+      "completed_at": "2026-05-28T16:56:00Z"
+    },
+    "rmsnorm": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.001953125,
+        "mean_abs_err": 2.276e-07,
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16",
+        "note": "2/114688 elements at 1 ULP boundary"
+      },
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-rmsnorm-001",
+      "started_at": "2026-05-28T17:20:00Z",
+      "completed_at": "2026-05-28T17:25:00Z"
+    },
+    "softmax": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999531531,
+        "max_abs_err": 3.0517578125e-05,
+        "relative_error": 1.8e-07,
+        "shape": [
+          1,
+          14,
+          128,
+          128
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-softmax-001",
+      "started_at": "2026-05-28T17:00:00Z",
+      "completed_at": "2026-05-28T17:10:00Z"
+    },
+    "rope": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine_q": 1.0,
+        "max_abs_err_q": 5.96e-08,
+        "cosine_k": 1.0,
+        "max_abs_err_k": 5.96e-08,
+        "q_shape": [
+          1,
+          14,
+          128,
+          64
+        ],
+        "k_shape": [
+          1,
+          2,
+          128,
+          64
+        ],
+        "dtype": "fp16",
+        "note": "single graph with 2 HERoPE nodes sharing cos/sin; interleaved-pair layout"
+      },
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-rope-001",
+      "started_at": "2026-05-28T19:30:00Z",
+      "completed_at": "2026-05-28T19:38:00Z"
+    },
+    "matmul": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999998457395,
+        "max_abs_err": 0.0009765625,
+        "relative_error": 3.2e-06,
+        "shape_a": [128, 896],
+        "shape_b": [896, 4864],
+        "shape_c": [128, 4864],
+        "dtype": "fp16",
+        "note": "scalar fp32-accumulated dot product over K=896; output 622592 elements; first op with output_shape != input_shape"
+      },
+      "report_path": "ops/matmul/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-matmul-002",
+      "started_at": "2026-05-29T10:00:00Z",
+      "completed_at": "2026-05-29T11:25:00Z"
+    },
+    "add": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "relative_error": 0.0,
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16",
+        "note": "bit-exact match — naive element-wise add does single fp16 round, identical to numpy fp32->fp16 cast"
+      },
+      "report_path": "ops/add/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-add-001",
+      "started_at": "2026-05-29T00:00:00Z",
+      "completed_at": "2026-05-29T09:40:00Z"
+    },
+    "mul": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0000000000000002,
+        "max_abs_err": 5.96e-08,
+        "relative_error": 1.19e-06,
+        "shape": [1, 1, 128, 896],
+        "dtype": "fp16",
+        "note": "naive a*b — single fp16 round, near bit-exact match"
+      },
+      "report_path": "ops/mul/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-mul-002",
+      "started_at": "2026-05-29T10:00:00Z",
+      "completed_at": "2026-05-29T11:10:00Z"
+    },
+    "sub": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999999999,
+        "max_abs_err": 0.0,
+        "relative_error": 0.0,
+        "shape": [1, 1, 128, 896],
+        "dtype": "fp16",
+        "note": "bit-exact match — naive a-b is single fp16 round"
+      },
+      "report_path": "ops/sub/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-sub-002",
+      "started_at": "2026-05-29T10:00:00Z",
+      "completed_at": "2026-05-29T11:10:00Z"
+    },
+    "div": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0000000000000002,
+        "max_abs_err": 0.0,
+        "relative_error": 0.0,
+        "shape": [1, 1, 128, 896],
+        "dtype": "fp16",
+        "note": "bit-exact match — fp16 -> fp32 promote, fp32 div, single fp16 round; identical to numpy fp32->fp16 cast path"
+      },
+      "report_path": "ops/div/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-div-002",
+      "started_at": "2026-05-29T10:00:00Z",
+      "completed_at": "2026-05-29T14:55:00Z"
+    },
+    "exp": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "relative_error": 0.0,
+        "shape": [1, 1, 128, 128],
+        "dtype": "fp16",
+        "note": "bit-exact match — device output uint16-equal to numpy ref; input range [-4.39, 4.15] safely below fp16 exp overflow threshold ~11.09"
+      },
+      "report_path": "ops/exp/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-exp-001",
+      "started_at": "2026-05-29T15:00:00Z",
+      "completed_at": "2026-05-29T15:40:00Z"
+    },
+    "rsqrt": {
+      "status": "in_progress",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": "builder-rsqrt-001",
+      "started_at": "2026-05-29T16:00:00Z",
+      "completed_at": null
+    },
+    "sqrt": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "neg": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "abs": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "reduce_sum": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "reduce_max": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "reduce_mean": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "gelu": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "tanh": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    },
+    "sigmoid": {
+      "status": "pending",
+      "iterations": 0,
+      "metrics": null,
+      "report_path": null,
+      "duration_min": null,
+      "session_id": null,
+      "started_at": null,
+      "completed_at": null
+    }
+  },
+  "global": {
+    "completed_count": 11,
+    "permanent_fail_count": 0,
+    "consecutive_fails": 0,
+    "total_lessons": 6
+  }
+}
+[0m
+[0m$ [0mls ops/rsqrt/ 2>/dev/null && echo "---" && ls ops/exp/build/src/ 2>/dev/null
+build
+inputs
+logs
+outputs
+patches
+spec.md
+---
+HEExp.cpp
+HEExpInterface.cpp
+[0m
+[0m→ [0mRead ops/rsqrt/spec.md
+[0m→ [0mRead ops/exp/build/src/HEExp.cpp
+[0m→ [0mRead ops/exp/build/src/HEExpInterface.cpp
+[0m
+[0m$ [0mls ops/exp/build/ ops/exp/build/model_src/ 2>/dev/null
+ops/exp/build/:
+build
+cache
+device_configs
+logs
+Makefile
+model
+model_src
+model_via_gen
+src
+
+ops/exp/build/model_src/:
+model_exp.cpp
+model_heexp.cpp
+[0m
+[0m→ [0mRead ops/exp/build/Makefile
+[0m
+[0m$ [0mls ops/exp/inputs/ ops/exp/outputs/ 2>/dev/null
+ops/exp/inputs/:
+in.raw
+
+ops/exp/outputs/:
+device
+ref
+[0m
+[0m→ [0mRead ops/exp/build/model_src/model_heexp.cpp

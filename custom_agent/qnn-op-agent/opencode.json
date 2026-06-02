@@ -1,0 +1,76 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "kiro-api": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://10.189.155.29:8000/v1",
+        "apiKey": "my-super-secret-password-yr"
+      },
+      "models": {
+        "claude-opus-4.7": {
+          "name": "Claude Opus 4.7",
+          "tool_call": true,
+          "attachment": true,
+          "limit": { "context": 200000, "output": 16384 }
+        },
+        "claude-sonnet-4.6": {
+          "name": "Claude Sonnet 4.6",
+          "tool_call": true,
+          "attachment": true,
+          "limit": { "context": 200000, "output": 16384 }
+        }
+      }
+    }
+  },
+  "agent": {
+    "op-orchestrator": {
+      "mode": "primary",
+      "description": "Manages op replacement queue, delegates to op-builder, tracks progress in state.json",
+      "model": "kiro-api/claude-opus-4.7",
+      "prompt": "{file:./.opencode/agents/op-orchestrator.md}",
+      "steps": 5000,
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "op-builder": {
+      "mode": "subagent",
+      "description": "Builds a single HVX custom op end-to-end through 8-phase workflow with debug and optimization",
+      "model": "kiro-api/claude-opus-4.7",
+      "prompt": "{file:./.opencode/agents/op-builder.md}",
+      "steps": 2000,
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny"
+      }
+    }
+  },
+  "mcp": {
+    "qnn-adb": {
+      "type": "local",
+      "command": ["python3", "mcp_servers/adb_server.py"],
+      "enabled": true
+    },
+    "qnn-build": {
+      "type": "local",
+      "command": ["python3", "mcp_servers/qnn_build_server.py"],
+      "enabled": true
+    },
+    "qnn-runner": {
+      "type": "local",
+      "command": ["python3", "mcp_servers/qnn_runner_server.py"],
+      "enabled": true
+    },
+    "tensor-compare": {
+      "type": "local",
+      "command": ["python3", "mcp_servers/tensor_compare_server.py"],
+      "enabled": true
+    }
+  }
+}

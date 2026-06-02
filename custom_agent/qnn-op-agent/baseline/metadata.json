@@ -1,0 +1,106 @@
+{
+  "model": "Qwen3-0.6B",
+  "model_params": {
+    "hidden_dim": 896,
+    "intermediate_dim": 4864,
+    "num_heads": 14,
+    "num_kv_heads": 2,
+    "head_dim": 64,
+    "seq_len": 128,
+    "rope_theta": 1000000,
+    "eps": 1e-06
+  },
+  "seed": 42,
+  "dtype": "float16",
+  "generated_at": "2026-05-27T11:44:05.349837+00:00",
+  "ops_tested": [
+    "rmsnorm",
+    "swiglu",
+    "rope",
+    "softmax",
+    "matmul"
+  ],
+  "test_inputs": {
+    "rmsnorm": {
+      "shapes": {
+        "input_x": [
+          1,
+          128,
+          896
+        ],
+        "weight": [
+          896
+        ]
+      },
+      "dtype": "float16"
+    },
+    "swiglu": {
+      "shapes": {
+        "gate": [
+          1,
+          128,
+          4864
+        ],
+        "up": [
+          1,
+          128,
+          4864
+        ]
+      },
+      "dtype": "float16"
+    },
+    "rope": {
+      "shapes": {
+        "q": [
+          1,
+          14,
+          128,
+          64
+        ],
+        "k": [
+          1,
+          2,
+          128,
+          64
+        ],
+        "cos_cache": [
+          1,
+          1,
+          128,
+          64
+        ],
+        "sin_cache": [
+          1,
+          1,
+          128,
+          64
+        ]
+      },
+      "dtype": "float16"
+    },
+    "softmax": {
+      "shapes": {
+        "input": [
+          1,
+          14,
+          128,
+          128
+        ]
+      },
+      "dtype": "float16"
+    },
+    "matmul": {
+      "shapes": {
+        "a": [
+          128,
+          896
+        ],
+        "b": [
+          896,
+          4864
+        ]
+      },
+      "dtype": "float16"
+    }
+  }
+}
