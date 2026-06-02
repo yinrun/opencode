@@ -1,6 +1,6 @@
 ---
 description: Runs QNN native ops on device to collect latency and accuracy baselines
-mode: subagent
+mode: primary
 model: kiro-api/claude-opus-4.7
 permission:
   read: allow

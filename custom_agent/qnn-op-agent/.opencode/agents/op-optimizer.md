@@ -1,6 +1,6 @@
 ---
 description: Optimizes custom HVX ops to match or beat QNN native op performance
-mode: subagent
+mode: primary
 model: kiro-api/claude-opus-4.7
 permission:
   read: allow
