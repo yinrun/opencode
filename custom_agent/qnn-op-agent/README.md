@@ -18,6 +18,18 @@
 | 设备 | SM8850 通过 USB 连接（serial: 204cbd30） |
 | LLM API | kiro-api endpoint `http://10.189.155.29:8000/v1` |
 
+### 环境变量
+
+启动脚本（run.sh / run_loop.sh）会自动设置以下环境变量：
+
+```bash
+export QNN_SDK_242=/home/yinrun/software/qualcomm/qairt/2.42.0.251225
+export ANDROID_SERIAL=204cbd30
+export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true  # 启用异步 subagent（心跳监控需要）
+```
+
+如果手动执行 `opencode run`，需要自己 export 这些变量。
+
 ## 快速开始
 
 ### 1. 跑完整个算子队列（无人值守）

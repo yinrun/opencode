@@ -8,6 +8,7 @@ cd "$PROJECT_DIR"
 export QNN_SDK_242="${QNN_SDK_242:-/home/yinrun/software/qualcomm/qairt/2.42.0.251225}"
 export ANDROID_SERIAL="${ANDROID_SERIAL:-204cbd30}"
 export PATH="/home/yinrun/software/android-ndk-r29:$PATH"
+export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
 
 MAX_ROUNDS=30
 ROUND=0
