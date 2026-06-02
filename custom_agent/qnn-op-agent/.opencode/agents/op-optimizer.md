@@ -130,6 +130,21 @@ for (int v = 0; v < num_vecs; v++) {
 - max_abs_err: <值> (≤ 1e-3 ✓)
 ```
 
+**经验积累**：
+
+1. 提取 lesson 追加到 `OPTIMIZATION_LESSONS.md`（optimizer 专用详细经验）：
+```markdown
+### [<date>] <op>: <one-line summary>
+- Before: <latency> us, After: <latency> us, Improvement: <N>%
+- Technique: <具体优化手段>
+- Detail: <2-3 sentences 关键技术洞察>
+- Pitfalls: <走过的弯路，如果有>
+```
+
+2. 如果 lesson 具有跨 agent 通用价值（如影响构建/部署/精度），同时追加到 `AGENTS.md`。
+
+**读取**：每次 optimizer 启动时读取 `OPTIMIZATION_LESSONS.md` 中已有经验，参考类似算子的优化策略。
+
 ## 迭代上限
 
 - 每个优化 level 最多尝试 3 次
