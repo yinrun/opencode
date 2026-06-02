@@ -424,3 +424,24 @@ sqrt/neg/abs 三个 iter=2 因为 iter1 都被 model_src overwrite 坑到，iter
 1. 进 op 之前先 `grep "DO_GRAPH_NODE_VALIDATIONS\|finalize\|getGraphInfoFromModels" ops/<op>/build/model_src/*.cpp` 确认是 L1 正确路径，否则手动 link。
 2. 设备 > 1 时 MCP `qnn-adb_*` 全部不可用，立刻切到 `ANDROID_SERIAL=<serial> adb ...`。
 3. `task` 工具委派给 op-builder 失败时，orchestrator 直接接管，不要无限重试。
+
+### L13 (round, 2026-06-02): C99 `roundf()` ≠ numpy `np.round`，rounding-类 op 必须用 `rintf`/`nearbyintf`
+
+**症状**: HERound iter1 用 `out = roundf(xv)` 编译/部署/运行全顺利，但验收 `cosine=0.9997986, max_abs=1.0` —— FAIL。
+
+**Root cause**: 两种"四舍五入"语义不同：
+- C99 `roundf(x)`: 半数远离零（half-away-from-zero）。`roundf(0.5)=1, roundf(-0.5)=-1, roundf(1.5)=2, roundf(2.5)=3`
+- numpy `np.round(x)` / IEEE 754 默认 / Python `round()`: 半数取偶（banker's rounding, half-to-even）。`round(0.5)=0, round(-0.5)=0, round(1.5)=2, round(2.5)=2`
+
+输入是 fp16 标准正态分布，落在 ±0.5 / ±1.5 / ±2.5 等半整数附近的样本足够多（fp16 在 [0,1] 区间分辨率 2^-10 = 9.77e-4），`np.round` 和 `roundf` 在这些点直接差 1.0 → max_abs=1.0。Cosine 仍 0.999+ 因为大多数样本不在半整数上。
+
+**Fix**: kernel 改成 `out = rintf(xv)`。`rintf` 默认走当前 IEEE 754 rounding mode (round-to-nearest-even)，与 numpy 完全一致。`nearbyintf` 也行，区别只是是否抛 INEXACT 异常。
+
+**结果** (HERound iter2):
+- cosine = 1.0
+- max_abs = 0.0
+- bit-exact
+
+**通用原则**: 任何涉及"取整 / 四舍五入 / 量化到整数"的 op，**默认用 `rintf` 不用 `roundf`**。`roundf` 在 C 标准里是个历史遗留怪胎，几乎所有现代框架（numpy/pytorch/tf/jax）都按 banker's rounding 走。如果 spec 没写明白要哪种语义，先用 `rintf` 对，再看测试集里有没有半整数样本。
+
+**调试快捷诊断**: 看到 cosine ≈ 0.999 但 max_abs 大到 1.0 这种"几乎正确但有几个点完全错"的 pattern，第一时间检查是不是 rounding mode / tie-breaking 不匹配，不是 kernel 整体逻辑错。

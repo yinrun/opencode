@@ -35,7 +35,17 @@
     "reduce_mean",
     "gelu",
     "tanh",
-    "sigmoid"
+    "sigmoid",
+    "asin",
+    "atan",
+    "ceil",
+    "cos",
+    "floor",
+    "log",
+    "round",
+    "sign",
+    "sin",
+    "softplus"
   ],
   "ops": {
     "silu": {
@@ -45,7 +55,12 @@
         "cosine": 0.99999994,
         "max_abs_err": 0.0001220703125,
         "mean_abs_err": 1.9e-08,
-        "shape": [1, 1, 128, 4864],
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
         "dtype": "fp16",
         "note": "1 fp16 ULP at outputs near sigmoid saturation; verified after fix --use_native_input/output_files (L1)"
       },
@@ -61,7 +76,12 @@
       "metrics": {
         "cosine": 1.0,
         "max_abs_err": 0.0009765625,
-        "shape": [1, 1, 128, 4864],
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
         "dtype": "fp16",
         "note": "fused silu(a)*b; reuses HESiLU sigmoid path"
       },
@@ -78,7 +98,12 @@
         "cosine": 1.0,
         "max_abs_err": 0.001953125,
         "mean_abs_err": 2.276e-07,
-        "shape": [1, 1, 128, 896],
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
         "dtype": "fp16",
         "note": "2/114688 elements at 1 ULP boundary"
       },
@@ -95,7 +120,12 @@
         "cosine": 0.9999999999531531,
         "max_abs_err": 3.0517578125e-05,
         "relative_error": 1.8e-07,
-        "shape": [1, 14, 128, 128],
+        "shape": [
+          1,
+          14,
+          128,
+          128
+        ],
         "dtype": "fp16",
         "note": "fused max+exp+sum+div; bit-exact to numpy reference"
       },
@@ -113,8 +143,18 @@
         "max_abs_err_q": 5.96e-08,
         "cosine_k": 1.0,
         "max_abs_err_k": 5.96e-08,
-        "q_shape": [1, 14, 128, 64],
-        "k_shape": [1, 2, 128, 64],
+        "q_shape": [
+          1,
+          14,
+          128,
+          64
+        ],
+        "k_shape": [
+          1,
+          2,
+          128,
+          64
+        ],
         "dtype": "fp16",
         "note": "single graph with 2 HERoPE nodes sharing cos/sin; interleaved-pair layout"
       },
@@ -131,9 +171,18 @@
         "cosine": 0.9999999998457395,
         "max_abs_err": 0.0009765625,
         "relative_error": 3.2e-06,
-        "shape_a": [128, 896],
-        "shape_b": [896, 4864],
-        "shape_c": [128, 4864],
+        "shape_a": [
+          128,
+          896
+        ],
+        "shape_b": [
+          896,
+          4864
+        ],
+        "shape_c": [
+          128,
+          4864
+        ],
         "dtype": "fp16",
         "note": "scalar fp32-accumulated dot product over K=896; AUTOSPLIT N axis chunk_size=4096 (L5)"
       },
@@ -150,7 +199,12 @@
         "cosine": 1.0,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 896],
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
         "dtype": "fp16",
         "note": "bit-exact match"
       },
@@ -167,7 +221,12 @@
         "cosine": 1.0000000000000002,
         "max_abs_err": 5.96e-08,
         "relative_error": 1.19e-06,
-        "shape": [1, 1, 128, 896],
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
         "dtype": "fp16",
         "note": "near bit-exact; single fp16 round"
       },
@@ -184,7 +243,12 @@
         "cosine": 0.9999999999999999,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 896],
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
         "dtype": "fp16",
         "note": "bit-exact"
       },
@@ -201,7 +265,12 @@
         "cosine": 1.0000000000000002,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 896],
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
         "dtype": "fp16",
         "note": "bit-exact"
       },
@@ -218,7 +287,12 @@
         "cosine": 1.0,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 128],
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
         "dtype": "fp16",
         "note": "bit-exact; inputs in [-4.39, 4.15] far below fp16 overflow threshold 11.09"
       },
@@ -235,7 +309,12 @@
         "cosine": 1.0,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 128],
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
         "dtype": "fp16",
         "note": "bit-exact 1.0f/sqrtf(x); device/ref NaN patterns match"
       },
@@ -252,9 +331,14 @@
         "cosine": 0.9999999999999962,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 128],
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
         "dtype": "fp16",
-        "note": "bit-exact match — naive sqrtf(x) (fp16->fp32 promote, fp32 op, single fp16 round); inputs may contain negatives → NaN, but device/ref NaN patterns match"
+        "note": "bit-exact match \u2014 naive sqrtf(x) (fp16->fp32 promote, fp32 op, single fp16 round); inputs may contain negatives \u2192 NaN, but device/ref NaN patterns match"
       },
       "report_path": "ops/sqrt/patches/01.md",
       "duration_min": null,
@@ -269,9 +353,14 @@
         "cosine": 1.0000000000000002,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 896],
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
         "dtype": "fp16",
-        "note": "bit-exact — sign-bit flip via -xv; 114688 elements"
+        "note": "bit-exact \u2014 sign-bit flip via -xv; 114688 elements"
       },
       "report_path": "ops/neg/patches/01.md",
       "duration_min": null,
@@ -286,9 +375,14 @@
         "cosine": 1.0000000000000002,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 896],
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
         "dtype": "fp16",
-        "note": "bit-exact — fabsf(xv); 114688 elements"
+        "note": "bit-exact \u2014 fabsf(xv); 114688 elements"
       },
       "report_path": "ops/abs/patches/01.md",
       "duration_min": null,
@@ -303,10 +397,20 @@
         "cosine": 1.0000000000000002,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape_in": [1, 1, 128, 896],
-        "shape_out": [1, 1, 128, 1],
+        "shape_in": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "shape_out": [
+          1,
+          1,
+          128,
+          1
+        ],
         "dtype": "fp16",
-        "note": "bit-exact — fp32 accumulator over K=896, single fp16 round; output_shape != input_shape, model.cpp writes output dims explicitly"
+        "note": "bit-exact \u2014 fp32 accumulator over K=896, single fp16 round; output_shape != input_shape, model.cpp writes output dims explicitly"
       },
       "report_path": "ops/reduce_sum/patches/01.md",
       "duration_min": null,
@@ -321,10 +425,20 @@
         "cosine": 0.9999999999999988,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape_in": [1, 1, 128, 128],
-        "shape_out": [1, 1, 128, 1],
+        "shape_in": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "shape_out": [
+          1,
+          1,
+          128,
+          1
+        ],
         "dtype": "fp16",
-        "note": "bit-exact — reduce_sum template clone; acc = -INFINITY, fp32 max loop, single fp16 round"
+        "note": "bit-exact \u2014 reduce_sum template clone; acc = -INFINITY, fp32 max loop, single fp16 round"
       },
       "report_path": "ops/reduce_max/patches/01.md",
       "duration_min": null,
@@ -339,10 +453,20 @@
         "cosine": 0.9999999999936685,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape_in": [1, 1, 128, 896],
-        "shape_out": [1, 1, 128, 1],
+        "shape_in": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "shape_out": [
+          1,
+          1,
+          128,
+          1
+        ],
         "dtype": "fp16",
-        "note": "bit-exact — reduce_sum template clone with acc/K division before fp16 round"
+        "note": "bit-exact \u2014 reduce_sum template clone with acc/K division before fp16 round"
       },
       "report_path": "ops/reduce_mean/patches/01.md",
       "duration_min": null,
@@ -357,7 +481,12 @@
         "cosine": 0.9999999999996103,
         "max_abs_err": 6.103515625e-05,
         "relative_error": 1.49e-06,
-        "shape": [1, 1, 128, 4864],
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
         "dtype": "fp16",
         "note": "tanh-form approximation: 0.5*x*(1+tanh(sqrt(2/pi)*(x+0.044715*x^3))), all fp32, single fp16 round; ~0.5 ULP error matches L11 prediction for composite expressions"
       },
@@ -374,7 +503,12 @@
         "cosine": 1.0,
         "max_abs_err": 0.0,
         "relative_error": 0.0,
-        "shape": [1, 1, 128, 896],
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
         "dtype": "fp16",
         "note": "bit-exact match per L10; tanhf(xv) single-line kernel, silu template clone"
       },
@@ -391,7 +525,12 @@
         "cosine": 0.9999999999998367,
         "max_abs_err": 0.000244140625,
         "relative_error": 7.86e-10,
-        "shape": [1, 1, 128, 4864],
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
         "dtype": "fp16",
         "note": "2 fp16 ULP at magnitude 1, matches L11 prediction for 1/(1+exp(-x)) path (2 extra fp32 ops vs numpy reference)"
       },
@@ -400,14 +539,224 @@
       "session_id": "builder-sigmoid-001",
       "started_at": "2026-05-30T14:17:00Z",
       "completed_at": "2026-06-02T11:18:00Z"
+    },
+    "asin": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "note": "bit-exact; uniform(-0.99,0.99) input per L7",
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": "ops/asin/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-asin-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T11:55:00Z"
+    },
+    "atan": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999999978,
+        "max_abs_err": 1.5258789e-05,
+        "note": "~0.5 fp16 ULP at output magnitude ~1.4",
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": "ops/atan/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-atan-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T11:55:00Z"
+    },
+    "ceil": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "note": "bit-exact",
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": "ops/ceil/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-ceil-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T11:55:00Z"
+    },
+    "cos": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999999999,
+        "max_abs_err": 0.0,
+        "note": "bit-exact",
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": "ops/cos/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-cos-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T11:55:00Z"
+    },
+    "floor": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "note": "bit-exact",
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16"
+      },
+      "report_path": "ops/floor/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-floor-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T11:55:00Z"
+    },
+    "log": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999999998,
+        "max_abs_err": 0.0,
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16",
+        "note": "bit-exact; uniform(0.01,10) input per L7"
+      },
+      "report_path": "ops/log/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-log-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T12:05:00Z"
+    },
+    "round": {
+      "status": "completed",
+      "iterations": 2,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16",
+        "note": "iter1 used roundf (half-away) \u2192 fail; iter2 uses rintf (banker round, matches numpy) \u2192 bit-exact"
+      },
+      "report_path": "ops/round/patches/02.md",
+      "duration_min": null,
+      "session_id": "builder-round-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T12:05:00Z"
+    },
+    "sign": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999999999,
+        "max_abs_err": 0.0,
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16",
+        "note": "bit-exact; ternary kernel"
+      },
+      "report_path": "ops/sign/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-sign-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T12:10:00Z"
+    },
+    "sin": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 1.0,
+        "max_abs_err": 0.0,
+        "shape": [
+          1,
+          1,
+          128,
+          896
+        ],
+        "dtype": "fp16",
+        "note": "bit-exact"
+      },
+      "report_path": "ops/sin/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-sin-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T12:10:00Z"
+    },
+    "softplus": {
+      "status": "completed",
+      "iterations": 1,
+      "metrics": {
+        "cosine": 0.9999999999997919,
+        "max_abs_err": 0.00048828125,
+        "shape": [
+          1,
+          1,
+          128,
+          4864
+        ],
+        "dtype": "fp16",
+        "note": "~4 fp16 ULP; stable form to avoid expf overflow"
+      },
+      "report_path": "ops/softplus/patches/01.md",
+      "duration_min": null,
+      "session_id": "builder-softplus-001",
+      "started_at": "2026-06-02T11:45:00Z",
+      "completed_at": "2026-06-02T12:15:00Z"
     }
   },
   "global": {
-    "completed_count": 21,
+    "completed_count": 31,
     "permanent_fail_count": 0,
     "consecutive_fails": 0,
-    "total_lessons": 12,
+    "total_lessons": 13,
     "queue_complete": true
   },
-  "updated_at_last": "2026-06-02T11:30:00Z"
+  "updated_at_last": "2026-06-02T12:15:00Z"
 }

@@ -92,7 +92,13 @@ permission:
 ### Phase 7 — Report
 - 写 `report.md`：最终精度、迭代次数、关键 patch 摘要
 - 提取 lesson 追加到 `AGENTS.md`
-- 返回结果给 orchestrator
+- 更新 `state.json` 中该算子状态为 `completed`（含 metrics）
+- **最后必须输出一条纯文本 summary**（不能以 tool call 结束 session），格式：
+  ```
+  ✅ <op_name> completed: cosine=<值>, max_abs_err=<值>, iterations=<值>
+  Lesson: <一句话 lesson>
+  ```
+  这条文本是 orchestrator 通过 task tool 读取的返回值。如果 session 以 tool call 结束而非文本，orchestrator 会收到空字符串。
 
 ### Phase 8 — Optimize（性能优化，可选）
 

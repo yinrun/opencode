@@ -42,7 +42,33 @@
       "description": "Builds a single HVX custom op end-to-end through 8-phase workflow with debug and optimization",
       "model": "kiro-api/claude-opus-4.7",
       "prompt": "{file:./.opencode/agents/op-builder.md}",
-      "steps": 2000,
+      "steps": 1000,
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny"
+      }
+    },
+    "qnn-baseline-runner": {
+      "mode": "subagent",
+      "description": "Runs QNN native ops on device to collect latency and accuracy baselines",
+      "model": "kiro-api/claude-opus-4.7",
+      "prompt": "{file:./.opencode/agents/qnn-baseline-runner.md}",
+      "steps": 500,
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny"
+      }
+    },
+    "op-optimizer": {
+      "mode": "subagent",
+      "description": "Optimizes custom HVX ops to match or beat QNN native op performance (target ≤ 1.1x)",
+      "model": "kiro-api/claude-opus-4.7",
+      "prompt": "{file:./.opencode/agents/op-optimizer.md}",
+      "steps": 1000,
       "permission": {
         "read": "allow",
         "edit": "allow",

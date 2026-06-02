@@ -1,8 +1,10 @@
 # QNN Op-Replace Agent — Final Summary
 
-## Status: ALL 21 OPS COMPLETED ✅
+## Status: ALL 31 OPS COMPLETED ✅
 
 Acceptance criteria: cosine ≥ 0.999, max_abs ≤ 1e-3, fp16
+
+### Batch 1 (21 ops)
 
 | Op | Iters | Cosine | Max Abs Err | Shape | Notes |
 |----|-------|--------|-------------|-------|-------|
@@ -28,9 +30,24 @@ Acceptance criteria: cosine ≥ 0.999, max_abs ≤ 1e-3, fp16
 | tanh | 1 | 1.0 | 0.0 | [1,1,128,896] | bit-exact (L10) |
 | sigmoid | 1 | 0.9999999999998 | 2.44e-04 | [1,1,128,4864] | ~2 ULP (L11) |
 
-**Total**: 21 ops, 27 iterations, 13 bit-exact (max_abs == 0.0)
+### Batch 2 (10 unary ops, 2026-06-02)
 
-## Key Lessons (AGENTS.md L1-L12)
+| Op | Iters | Cosine | Max Abs Err | Shape | Notes |
+|----|-------|--------|-------------|-------|-------|
+| asin | 1 | 1.0 | 0.0 | [1,1,128,896] | bit-exact; uniform(-0.99,0.99) input (L7) |
+| atan | 1 | 0.999999999999998 | 1.53e-05 | [1,1,128,896] | ~0.5 fp16 ULP |
+| ceil | 1 | 1.0 | 0.0 | [1,1,128,896] | bit-exact |
+| cos | 1 | 0.9999999999999999 | 0.0 | [1,1,128,896] | bit-exact |
+| floor | 1 | 1.0 | 0.0 | [1,1,128,896] | bit-exact |
+| log | 1 | 0.9999999999999998 | 0.0 | [1,1,128,896] | bit-exact; uniform(0.01,10) input (L7) |
+| round | 2 | 1.0 | 0.0 | [1,1,128,896] | iter1 used `roundf` (half-away) → fail; iter2 `rintf` (banker) → bit-exact (L13) |
+| sign | 1 | 0.9999999999999999 | 0.0 | [1,1,128,896] | bit-exact; ternary kernel |
+| sin | 1 | 1.0 | 0.0 | [1,1,128,896] | bit-exact |
+| softplus | 1 | 0.9999999999997919 | 4.88e-04 | [1,1,128,4864] | ~4 ULP; stable form `pos + log1p(exp(-|x|))` |
+
+**Total**: 31 ops, 38 iterations, 22 bit-exact (max_abs == 0.0), 0 permanent failures.
+
+## Key Lessons (AGENTS.md L1-L13)
 
 1. **L1**: `qnn-net-run` 必须 `--use_native_input_files --use_native_output_files`，输出文件 `output_native.raw`，op_packages 必须 `:CPU,:HTP` 双注册
 2. **L2**: 输出垃圾时排查顺序：I/O dtype → 文件名 → op_packages → verbose log → kernel
@@ -44,6 +61,7 @@ Acceptance criteria: cosine ≥ 0.999, max_abs ≤ 1e-3, fp16
 10. **L10**: gelu/tanh/sigmoid/neg/abs 五个 unary-real-domain op 模板可视为同一份代码
 11. **L11**: 复合表达式 op 应预期 1-3 fp16 ULP（≤ 6e-4）尾部误差，不能再期望 bit-exact
 12. **L12**: `build_single_op_model` 模板会覆盖正确的 `getGraphInfoFromModels()` patch；多 device 环境下 qnn-adb MCP server 失效，必须用 `ANDROID_SERIAL=<serial> adb`；op-builder subagent 委派不可靠时 orchestrator 直接接管
+13. **L13**: C99 `roundf()` ≠ numpy `np.round`；rounding 类 op 必须用 `rintf`/`nearbyintf`（banker's rounding）。诊断 pattern：cosine ≈ 0.999 但 max_abs = 1.0 → 第一时间查 rounding mode / tie-breaking
 
 ## Infrastructure Workarounds (固化在 mcp_servers/qnn_runner_server.py)
 
@@ -72,7 +90,7 @@ ops/<op>/
 └── build/
     ├── src/HE<Op>.cpp                              (kernel)
     ├── src/HE<Op>Interface.cpp                     (op package interface)
-    ├── model_src/model_he<op>.cpp                  (single-op graph)
+    ├── model_src/model_he<op>.cpp                  (single-op graph, getGraphInfoFromModels)
     ├── Makefile                                    (3 targets)
     ├── build/{aarch64-android,hexagon-v81,x86_64-linux-clang}/libQnnHtp<Op>.so
     ├── model/libQnnHE<Op>Model.so
@@ -81,10 +99,10 @@ ops/<op>/
 
 ## Exit Status
 
-- queue_complete: true
-- completed_count: 21
+- queue_complete: **true**
+- completed_count: **31**
 - permanent_fail_count: 0
 - consecutive_fails: 0
-- total_lessons: 12
+- total_lessons: **13**
 
 Acceptance: 100% pass rate. Ready for downstream integration.
