@@ -112,6 +112,10 @@ Pull 设备输出到 `ops/<op>/baseline/output_native.raw`。
 - 每次运行前 `device_health()` 检查热状态
 - 设备 serial: `ANDROID_SERIAL=204cbd30`
 - QNN SDK: `/home/yinrun/software/qualcomm/qairt/2.42.0.251225`
+- **每个步骤开始时更新 `heartbeat.json`**：
+  ```bash
+  python3 -c "import json,datetime; json.dump({'timestamp':datetime.datetime.now().isoformat(),'agent':'qnn-baseline-runner','op':'<OP>','phase':'<PHASE>','detail':'<DETAIL>'}, open('heartbeat.json','w'))"
+  ```
 
 ## QNN 内置 Op Name 映射
 

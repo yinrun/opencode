@@ -75,6 +75,19 @@
         "bash": "allow",
         "task": "deny"
       }
+    },
+    "health-monitor": {
+      "mode": "subagent",
+      "description": "Waits 30min then checks heartbeat.json for task liveness",
+      "model": "kiro-api/claude-sonnet-4.6",
+      "prompt": "{file:./.opencode/agents/health-monitor.md}",
+      "steps": 10,
+      "permission": {
+        "read": "allow",
+        "edit": "deny",
+        "bash": "allow",
+        "task": "deny"
+      }
     }
   },
   "mcp": {

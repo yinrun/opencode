@@ -140,6 +140,10 @@ permission:
 - 每个 patch 记录假设和结果
 - 同一错误 3 次升级策略
 - 每个算子完成后提取至少 1 条 lesson
+- **每个阶段开始时更新 `heartbeat.json`**：
+  ```bash
+  python3 -c "import json,datetime; json.dump({'timestamp':datetime.datetime.now().isoformat(),'agent':'op-builder','op':'<OP>','phase':'<PHASE>','detail':'<DETAIL>'}, open('heartbeat.json','w'))"
+  ```
 
 ## 已验证的端到端工作流模板
 

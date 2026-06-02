@@ -2,11 +2,11 @@
   "graphs": [
     {
       "graph_names": [
-        "HEExp_graph"
+        "QnnMatMul_graph"
       ],
       "vtcm_mb": 8,
       "O": 3,
-      "hvx_threads": 8,
+      "hvx_threads": 4,
       "fp16_relaxed_precision": 1
     }
   ]

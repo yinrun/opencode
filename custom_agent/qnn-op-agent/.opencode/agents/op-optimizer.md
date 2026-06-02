@@ -143,6 +143,10 @@ for (int v = 0; v < num_vecs; v++) {
 - 使用相同的测试输入（seed=42）
 - 设备测量必须 warmup + 多次取 median（避免 V1 L2 的冷启动测量误差）
 - 参考 AGENTS.md 中的 lessons（特别是 L1 I/O flags、L4 config 污染）
+- **每个阶段开始时更新 `heartbeat.json`**：
+  ```bash
+  python3 -c "import json,datetime; json.dump({'timestamp':datetime.datetime.now().isoformat(),'agent':'op-optimizer','op':'<OP>','phase':'<PHASE>','detail':'<DETAIL>'}, open('heartbeat.json','w'))"
+  ```
 
 ## Session 结束要求
 

@@ -300,7 +300,15 @@
       "duration_min": null,
       "session_id": "builder-exp-001",
       "started_at": "2026-05-29T15:00:00Z",
-      "completed_at": "2026-05-29T15:44:00Z"
+      "completed_at": "2026-05-29T15:44:00Z",
+      "optimization": {
+        "phase": "baseline_pending",
+        "baseline_us": null,
+        "custom_us": null,
+        "ratio": null,
+        "target_ratio": 1.1,
+        "started_at": "2026-06-02T13:00:00Z"
+      }
     },
     "rsqrt": {
       "status": "completed",

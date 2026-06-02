@@ -113,3 +113,20 @@ Lesson 必须是可操作的技术洞察（不是"构建失败了"这种无信�
 | `op-builder` | 实现新算子（6 阶段工作流） | 算子 status=pending |
 | `qnn-baseline-runner` | 采集 QNN 原生算子 latency/精度基准 | 需要性能对标数据时 |
 | `op-optimizer` | 优化已通过验收的算子性能 | custom latency > 1.1× baseline 时 |
+| `health-monitor` | 等 30 分钟后检查心跳 | 启动工作 task 后同时启动，用 background=true |
+
+## 心跳监控模式
+
+启动工作 task（op-builder / op-optimizer / qnn-baseline-runner）后，同时启动 health-monitor（background=true）：
+
+1. 委派工作 task（background=true）
+2. 委派 health-monitor（background=true）："等 30 分钟后检查 heartbeat.json"
+3. 等待任一 background task 返回
+4. 如果工作 task 先返回 → 正常处理结果，cancel health-monitor
+5. 如果 health-monitor 返回 "healthy" → 再启动一轮 health-monitor 继续等
+6. 如果 health-monitor 返回 "timeout" → cancel 工作 task，标记算子 in_progress，记录问题，重新委派
+
+**所有工作 task 的 subagent 必须在每个阶段开始时更新 `heartbeat.json`：**
+```json
+{"timestamp": "ISO8601", "agent": "<agent_name>", "op": "<op_name>", "phase": "<current_phase>", "detail": "<what_doing>"}
+```

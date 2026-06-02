@@ -1,0 +1,39 @@
+{
+  "qnn_op": "ElementWiseExp",
+  "package": "qti.aisw",
+  "shape": [1, 1, 128, 128],
+  "dtype": "fp16",
+  "runs": 50,
+  "perf_profile": "burst",
+  "latency_us": {
+    "accelerator_excluding_wait_avg": 51,
+    "accelerator_excluding_wait_min": 49,
+    "accelerator_excluding_wait_max": 101,
+    "accelerator_avg": 153,
+    "accelerator_min": 110,
+    "accelerator_max": 2141,
+    "qnn_execute_avg": 948,
+    "qnn_execute_min": 872,
+    "qnn_execute_max": 3130,
+    "rpc_avg": 880
+  },
+  "init_us": {
+    "netrun_init": 10125,
+    "deinit": 22784
+  },
+  "accuracy_vs_numpy_fp32": {
+    "cosine": 0.9999998808,
+    "max_abs_err": 0.015625,
+    "mean_abs_err": 8.07e-05,
+    "note": "QNN native trades 16 fp16 ULP precision for HVX-vectorized exp approximation"
+  },
+  "output_file": "output_native.raw",
+  "context_binary": "qnn_exp_ctx.bin",
+  "device": "SM8850",
+  "android_serial": "204cbd30",
+  "qnn_sdk": "2.42.0.251225",
+  "timestamp": "2026-06-02T19:29:25Z",
+  "primary_metric": "accelerator_excluding_wait_avg",
+  "primary_metric_value_us": 51,
+  "rationale": "Accelerator (excluding wait) is the cleanest HTP-side compute time, excluding RPC/host scheduling overhead. This is what custom HEExp must match."
+}
